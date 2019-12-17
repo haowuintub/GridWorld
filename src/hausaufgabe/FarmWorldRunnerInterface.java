@@ -13,6 +13,8 @@ public interface FarmWorldRunnerInterface {
      */
     public ActorWorld createNewWorldWithGridSize(int x, int y);
 
+
+    
     /*
      * Setzt ein Animal auf das mit x (horizontale Position) und y (vertikale
      * Position) bestimmte Feld, falls das Feld im Grid existiert und leer ist.
