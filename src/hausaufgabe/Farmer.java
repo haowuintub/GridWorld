@@ -53,6 +53,7 @@ public class Farmer extends Critter {
         for (Location location : surroundingLocation) {
             if (!gr.isValid(location))
                 return;
+
             Actor neighbor = gr.get(location);
             if (neighbor instanceof Flower) {
                 neighbor.removeSelfFromGrid();

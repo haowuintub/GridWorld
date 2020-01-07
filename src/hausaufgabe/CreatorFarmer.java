@@ -1,5 +1,6 @@
 package hausaufgabe;
 
+
 import gridworld.framework.grid.Location;
 
 /**
