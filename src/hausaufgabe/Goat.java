@@ -312,4 +312,9 @@ public class Goat extends Animal {
 
 }
 
+// Muss noch den Fakt, dass ein Goat über Steine springt hinzufügen.
 
+// Der Counter der Goats wird nicht mit Informationen versorgt.
+// Sprich: Eine Goat wird erstellt --> Counter +1 oder Goat wird removed --> Counter -1 fehlt bisher
+
+// Muss noch GoatMilk-Status hinzufügen + removeMilkofGoat() mit Milk --> MilkStorage
