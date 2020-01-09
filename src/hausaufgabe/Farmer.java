@@ -63,3 +63,5 @@ public class Farmer extends Critter {
 
     }
 }
+
+// Größe von Farmer und Auswirkung herausfinden

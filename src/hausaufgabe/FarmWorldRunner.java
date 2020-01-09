@@ -91,12 +91,15 @@ public class FarmWorldRunner  {
 
         bauernhof.add(new Goat());
         goatNumber++;
+        //hier sinnvoll???
         bauernhof.add(new GoatKid());
         bauernhof.add(new Farmer());
         bauernhof.add(new Farmer());
+        bauernhof.add(new MilkStorage());
+        bauernhof.add(new GoatMilker());
         bauernhof.show();
 
-
+// hier sinnvoll??
         CreatorFarmer creatorFarmer = new CreatorFarmer() ;
         if(goatNumber == 0){
             creatorFarmer.checkGoatNumber();

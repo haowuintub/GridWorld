@@ -15,7 +15,7 @@ public class Animal extends Actor {
 
 
 
-
+//Attribute
     private int age ;
 
 

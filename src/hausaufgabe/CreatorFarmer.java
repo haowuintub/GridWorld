@@ -22,3 +22,4 @@ public class CreatorFarmer extends Farmer {
     }
 
 }
+// muss funktion überprüfen

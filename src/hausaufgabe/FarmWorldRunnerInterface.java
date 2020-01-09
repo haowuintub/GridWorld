@@ -1,6 +1,7 @@
 package hausaufgabe;
 
 import gridworld.framework.actor.ActorWorld;
+import gridworld.framework.actor.Flower;
 
 /**
  * @ Stefan Schulz, Hao Wu
