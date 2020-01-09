@@ -87,3 +87,8 @@ public interface FarmWorldRunnerInterface {
     /* Laesst die Simulation n Steps weiterlaufen. */
     public void runNSteps(int n);
 }
+
+
+
+
+//Dieses Interface gibt uns viele zu verwendende Funktionen vor. NICHT VERGESSEN!!
