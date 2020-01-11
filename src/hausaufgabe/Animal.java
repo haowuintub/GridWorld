@@ -55,8 +55,10 @@ public class Animal extends Actor {
      */
     public void act()
     {
-        if (canMove())
+        if (canMove()){
             move();
+            age++;
+        }
         else
             turn();
     }
@@ -114,5 +116,12 @@ public class Animal extends Actor {
         // not ok to move onto any other actor
     }
 
+
+//    Sorgt dafur, dass die graphische Oberfläche das Alter anzeigt, wenn man mit der Maus draufgeht.
+    @Override
+    public String toString() {
+        return getClass().getName() + "[" + ",age=" + age + /*",location=" + location + ",direction="
+                + direction + ",color=" + color +*/ "]";
+    }
 
 }

@@ -16,9 +16,11 @@ import java.awt.*;
 public class Goat extends Animal {
 
     private int steps = 1 ;
+    public int countGoatNumber = 0 ;
 
     public Goat() {
         this.setColor(Color.RED);
+        countGoatNumber++;
     }
 
     public void move() {
@@ -254,8 +256,8 @@ public class Goat extends Animal {
         Actor neighbor = gr.get(next);
         if (neighbor instanceof Rock) {
             moveTo(next);
-        }else if (gr.isValid(next)){
-            return;
+//        }else if (gr.isValid(next)){
+//            return;
         }else {
             removeSelfFromGrid();
         }
@@ -277,6 +279,10 @@ public class Goat extends Animal {
             return (neighbor == null)
 
         }*/
+
+    public int getCountGoatNumber(){
+        return countGoatNumber;
+    }
 
 
     @Override
