@@ -1,7 +1,7 @@
 package hausaufgabe;
 
-
 import gridworld.framework.grid.Location;
+/*import static hausaufgabe.FarmWorldRunner.countGoatNumber;*/
 
 /**
  * @ Hao Wu
@@ -9,17 +9,23 @@ import gridworld.framework.grid.Location;
 
 public class CreatorFarmer extends Farmer {
 
+    public static int countGoatNumber = 0 ;
+
     void checkGoatNumber(){
-        Location location1 = this.getLocation() ;
-        Goat goat = new Goat() ;
-        goat.moveTo(location1);
+
+        if(countGoatNumber == 0) {
+            Location loc = this.getLocation();
+            Location next = loc.getAdjacentLocation(this.getDirection());
+            Goat goat = new Goat();
+            goat.moveTo(next);
+        }
 
     }
 
 
-    @Override
+/*    @Override
     void eatFlowerAround() {
-    }
+    }*/
 
 }
 // muss funktion überprüfen

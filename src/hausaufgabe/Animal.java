@@ -13,21 +13,12 @@ import java.awt.*;
 
 public class Animal extends Actor {
 
-
-
 //Attribute
-    private int age ;
+    public int age ;
 
-
-    public int getAge() {
-        return age;
-    }
-
-
-
-
-
-
+//    public int getAge() {
+//        return age;
+//    }
 
 
     /**
@@ -63,6 +54,7 @@ public class Animal extends Actor {
             turn();
     }
 
+
     /**
      * Turns the animal 45 degrees to the right without changing its location.
      */
@@ -70,8 +62,6 @@ public class Animal extends Actor {
     {
         setDirection(getDirection() + Location.HALF_RIGHT);
     }
-
-
 
 
     /**
@@ -92,8 +82,6 @@ public class Animal extends Actor {
         Flower flower = new Flower(getColor());
         flower.putSelfInGrid(gr, loc);
     }
-
-
 
 
     /**

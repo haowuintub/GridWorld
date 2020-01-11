@@ -16,7 +16,7 @@ import java.util.List;
 public class Farmer extends Critter {
 
 // Größe von Farmer
-/*    int height ;
+    int height ;
 
     Farmer(){
         height = 180 ;
@@ -24,7 +24,8 @@ public class Farmer extends Critter {
 
     Farmer(int height){
         this.height = height ;
-    }*/
+    }
+
 
     void eatFlowerAround() {
         Grid<Actor> gr = getGrid();
@@ -69,6 +70,13 @@ public class Farmer extends Critter {
 //    die Anzahl der Blumenwirte variieren
     void farmerRemoveSelfFromGrid(Farmer farmer){
         if(farmer == null){System.out.println("This ist not such farmer!");}else{farmer.removeSelfFromGrid();}
+    }
+
+
+    @Override
+    public void act() {
+        super.act();
+        eatFlowerAround();
     }
 
 }

@@ -9,19 +9,31 @@ import gridworld.framework.grid.Location;
 
 import java.awt.*;
 
+/*import static hausaufgabe.FarmWorldRunner.countGoatNumber;*/
+import static hausaufgabe.CreatorFarmer.countGoatNumber;
+
 /**
  * @ Hao Wu
  */
 
 public class Goat extends Animal {
 
-    private int steps = 1 ;
-    public int countGoatNumber = 0 ;
+//    private int age ;
+//    public int countGoatNumber = 0 ;
 
     public Goat() {
+//        age = 0 ;
         this.setColor(Color.RED);
         countGoatNumber++;
     }
+
+
+
+
+/*    public int getCountGoatNumber(){
+        return countGoatNumber;
+    }*/
+
 
     public void move() {
 /*        if (Math.random() <= 1/6) {*/
@@ -34,8 +46,10 @@ public class Goat extends Animal {
         Location next = loc1.getAdjacentLocation(getDirection());
         if (gr.isValid(next))
             moveTo(next);
-        else
+        else{
             removeSelfFromGrid();
+            countGoatNumber = countGoatNumber - 1;
+        }
 
 
         if (Math.random() <= 1/6) {
@@ -67,6 +81,7 @@ public class Goat extends Animal {
                 moveTo(location);
             else
                 removeSelfFromGrid();
+                countGoatNumber = countGoatNumber - 1;
 //            Flower flower = new Flower(getColor());
 //            flower.putSelfInGrid(gr, loc);
         }*/
@@ -88,10 +103,9 @@ public class Goat extends Animal {
             else if (gr.isValid(nextNORTHEAST)) {
                 moveTo(nextNORTHEAST);
             }else{
+                removeSelfFromGrid();
+                countGoatNumber = countGoatNumber - 1;
             }
-            removeSelfFromGrid();
-//            Flower flower = new Flower(getColor());
-//            flower.putSelfInGrid(gr, loc);
         }
 
     }
@@ -260,6 +274,7 @@ public class Goat extends Animal {
 //            return;
         }else {
             removeSelfFromGrid();
+            countGoatNumber = countGoatNumber - 1;
         }
 
         Rock rock = new Rock();
@@ -280,10 +295,6 @@ public class Goat extends Animal {
 
         }*/
 
-    public int getCountGoatNumber(){
-        return countGoatNumber;
-    }
-
 
     @Override
     public void act() {
@@ -297,8 +308,9 @@ public class Goat extends Animal {
             turn();
 
 
-        if (Math.random() <= 1/5 && steps > 15) {
+        if (Math.random() <= 1/5 && age > 15) {
 /*            this.removeSelfFromGrid();
+            countGoatNumber = countGoatNumber - 1;
 
             Grid<Actor> gr = getGrid();
             if (gr == null)
@@ -310,11 +322,13 @@ public class Goat extends Animal {
             Location loc = this.getLocation() ;
             Grid<Actor> gr = this.getGrid() ;
             this.removeSelfFromGrid();
+            countGoatNumber = countGoatNumber - 1;
             Flower flower = new Flower(getColor());
             flower.putSelfInGrid(gr,loc) ;
         }
 
-        steps ++ ;
+        age++ ;
+
     }
 
 }

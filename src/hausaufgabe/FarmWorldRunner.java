@@ -19,7 +19,7 @@ import gridworld.framework.grid.Location;
  */
 public class FarmWorldRunner implements FarmWorldRunnerInterface {
 
-//    public static int goatNumber = 0;
+/*    public static int countGoatNumber = 0 ;*/
 
     public static void main(String[] args) {
 
@@ -29,7 +29,7 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
         ActorWorld bauernhof = farmWorldRunner.createNewWorldWithGridSize(20, 20);
 
         Goat goat = farmWorldRunner.addGoatIfFieldEmpty(5,5);
-        goat.getCountGoatNumber();
+//        goat.getCountGoatNumber();
         farmWorldRunner.addFarmerIfFieldEmpty(3,8);
         farmWorldRunner.addFarmerIfFieldEmpty(9,14);
         farmWorldRunner.addMilkStorageIfFieldEmpty(3,5);
@@ -51,9 +51,10 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
 
 // hier sinnvoll??
         CreatorFarmer creatorFarmer = farmWorldRunner.addCreatorFarmerIfFieldEmpty(15,19);
-        if(goat.getCountGoatNumber() == 0){
+        /*if(goat.getCountGoatNumber() == 0){
             creatorFarmer.checkGoatNumber();
-        }
+        }*/
+        creatorFarmer.checkGoatNumber();
 
 
 
@@ -302,11 +303,12 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
     @Override
     public void runNSteps(int n) {
 
-/*        System.exit(n);*/
+/*        while(step <= n){
 
-
-/*        while(step<=n){
         }*/
+
+
+/*        System.exit(n);*/
 
 
 /*        int num = 0;
