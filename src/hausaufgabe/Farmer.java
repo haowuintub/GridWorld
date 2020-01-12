@@ -3,6 +3,7 @@ package hausaufgabe;
 import gridworld.framework.actor.Actor;
 import gridworld.framework.actor.Critter;
 import gridworld.framework.actor.Flower;
+import gridworld.framework.actor.Rock;
 import gridworld.framework.grid.Grid;
 import gridworld.framework.grid.Location;
 
@@ -13,7 +14,7 @@ import java.util.List;
  * @ Hao Wu
  */
 
-public class Farmer extends Critter {
+public class Farmer extends MyOwnCritter {
 
 // Größe von Farmer
     int height ;
@@ -27,7 +28,14 @@ public class Farmer extends Critter {
     }
 
 
-    void eatFlowerAround() {
+/*    void eatFlowerAround() {
+
+        ArrayList<Actor> actors = getActors();
+        processActors(actors);
+
+
+
+
         Grid<Actor> gr = getGrid();
         if (gr == null)
             return;
@@ -64,7 +72,7 @@ public class Farmer extends Critter {
             }
         }
 
-    }
+    }*/
 
 
 //    die Anzahl der Blumenwirte variieren
@@ -73,11 +81,14 @@ public class Farmer extends Critter {
     }
 
 
-    @Override
-    public void act() {
-        super.act();
-        eatFlowerAround();
-    }
+/*    @Override
+    public void processActors(ArrayList<Actor> actors) {
+        for (Actor a : actors)
+        {
+            if (a instanceof Flower)
+                a.removeSelfFromGrid();
+        }
+    }*/
 
 }
 
