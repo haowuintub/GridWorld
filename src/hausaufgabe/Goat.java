@@ -9,8 +9,8 @@ import gridworld.framework.grid.Location;
 
 import java.awt.*;
 
-/*import static hausaufgabe.FarmWorldRunner.countGoatNumber;*/
-import static hausaufgabe.CreatorFarmer.countGoatNumber;
+import static hausaufgabe.FarmWorldRunner.countGoatNumber;
+/*import static hausaufgabe.CreatorFarmer.countGoatNumber;*/
 
 /**
  * @ Hao Wu
@@ -303,12 +303,8 @@ public class Goat extends Animal {
 
         if (canMove()){
             move();
-            climb();
-        } else
-            turn();
 
-
-        if (Math.random() <= 1/5 && age > 15) {
+            if (Math.random() <= 1/5 && age > 15) {
 /*            this.removeSelfFromGrid();
             countGoatNumber = countGoatNumber - 1;
 
@@ -319,16 +315,20 @@ public class Goat extends Animal {
             Flower flower = new Flower(getColor());
             flower.putSelfInGrid(gr, loc);*/
 
-            Location loc = this.getLocation() ;
-            Grid<Actor> gr = this.getGrid() ;
-            this.removeSelfFromGrid();
-            countGoatNumber = countGoatNumber - 1;
-            Flower flower = new Flower(getColor());
-            flower.putSelfInGrid(gr,loc) ;
+                Location loc = this.getLocation() ;
+                Grid<Actor> gr = this.getGrid() ;
+                this.removeSelfFromGrid();
+                countGoatNumber = countGoatNumber - 1;
+                Flower flower = new Flower(getColor()) ;
+                flower.putSelfInGrid(gr,loc) ;
+                return;
+            }
+
+            climb();
+        } else{
+            turn();
         }
-
         age++ ;
-
     }
 
 }

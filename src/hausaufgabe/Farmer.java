@@ -77,7 +77,9 @@ public class Farmer extends MyOwnCritter {
 
 //    die Anzahl der Blumenwirte variieren
     void farmerRemoveSelfFromGrid(Farmer farmer){
-        if(farmer == null){System.out.println("This ist not such farmer!");}else{farmer.removeSelfFromGrid();}
+        if(farmer == null){
+            System.out.println("This ist not such farmer!");}else{farmer.removeSelfFromGrid();
+        }
     }
 
 

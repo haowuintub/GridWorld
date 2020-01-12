@@ -42,6 +42,43 @@ public class MyOwnCritter extends Critter {
         return nextLocation ;
     }
 
+
+    public boolean canMove()
+    {
+        Grid<Actor> gr = getGrid();
+        if (gr == null)
+            return false;
+        Location loc = getLocation();
+        Location next = loc.getAdjacentLocation(getDirection());
+        if (!gr.isValid(next))
+            return false;
+        Actor neighbor = gr.get(next);
+        return (neighbor == null);
+    }
+
+
+    private Location compare(Location theShorterOne, Location comparedLocation, double difference_TheShorterOne_Before){
+
+        Location here = getLocation() ;
+        int row = here.getRow() ;
+        int col = here.getCol() ;
+
+        int row_difference = Math.abs(comparedLocation.getRow()-row) ;
+        int col_difference = Math.abs(comparedLocation.getCol()-col) ;
+        double r = (Math.sqrt(row_difference * row_difference + col_difference * col_difference));
+
+        if(r < difference_TheShorterOne_Before){
+            difference_TheShorterOne_Before = r ;
+            theShorterOne = comparedLocation ;
+            return theShorterOne ;
+        }else{
+            return theShorterOne ;
+        }
+    }
+
+
+
+
     @Override
     public ArrayList<Actor> getActors() {
 
@@ -109,33 +146,13 @@ public class MyOwnCritter extends Critter {
             return neighboringLocation ;
 
         for (Location location : neighboringLocation) {
-            if(!gr.isValid(location)) {
+            if(!canMove()) {
                 neighboringLocation.remove(location);
             }
         }
 
          return neighboringLocation ;
 /*        return super.getMoveLocations();*/
-    }
-
-
-    private Location compare(Location theShorterOne, Location comparedLocation, double difference_TheShorterOne_Before){
-
-        Location here = getLocation() ;
-        int row = here.getRow() ;
-        int col = here.getCol() ;
-
-        int row_difference = Math.abs(comparedLocation.getRow()-row) ;
-        int col_difference = Math.abs(comparedLocation.getCol()-col) ;
-        double r = (Math.sqrt(row_difference * row_difference + col_difference * col_difference));
-
-        if(r < difference_TheShorterOne_Before){
-            difference_TheShorterOne_Before = r ;
-            theShorterOne = comparedLocation ;
-            return theShorterOne ;
-        }else{
-            return theShorterOne ;
-        }
     }
 
     @Override
