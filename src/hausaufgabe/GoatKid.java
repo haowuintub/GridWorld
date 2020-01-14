@@ -1,6 +1,6 @@
 package hausaufgabe;
 
-//import apple.laf.JRSUIConstants; ---> ????????????????????????? <------------
+
 import gridworld.framework.actor.Actor;
 import gridworld.framework.actor.Rock;
 import gridworld.framework.grid.Grid;
@@ -38,7 +38,6 @@ public class GoatKid extends Animal {
         if (Math.random() <= 1./6) {
 
             Location loc = getLocation();
-            System.out.println("1/6");
             Location nextEAST = loc.getAdjacentLocation(Location.EAST);
             Location nextSOUTHEAST = loc.getAdjacentLocation(Location.SOUTHEAST);
             Location nextSOUTH = loc.getAdjacentLocation(Location.SOUTH);

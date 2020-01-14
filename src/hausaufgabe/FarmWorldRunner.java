@@ -21,7 +21,7 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
 
 //Attribute
     public static int countGoatNumber = 0 ;
-
+    ActorWorld world;
 
     //main
     public static void main(String[] args) {
@@ -70,7 +70,7 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
     @Override
     public ActorWorld createNewWorldWithGridSize(int x, int y) {
 
-        ActorWorld world = new ActorWorld(new BoundedGrid<Actor>(x, y));
+        world = new ActorWorld(new BoundedGrid<Actor>(x, y));
 
           BoundedGrid<Actor> boundedGrid = new BoundedGrid<Actor>(x, y);
 
@@ -89,7 +89,7 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
     public Animal addAnimalIfFieldEmpty(int x, int y) {
 
         if(canAddActorIfFieldEmpty(x,y)){
-            ActorWorld world = new ActorWorld();
+
 
             Animal animal = new Animal();
             world.add(animal);
@@ -106,7 +106,6 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
     public Goat addGoatIfFieldEmpty(int x, int y) {
 
         if(canAddActorIfFieldEmpty(x,y)){
-            ActorWorld world = new ActorWorld();
 
             Goat goat = new Goat();
             world.add(goat);
@@ -123,7 +122,6 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
     public GoatKid addGoatKidIfFieldEmpty(int x, int y) {
 
         if(canAddActorIfFieldEmpty(x,y)){
-            ActorWorld world = new ActorWorld();
 
             GoatKid goatKid = new GoatKid();
             world.add(goatKid);
@@ -140,7 +138,6 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
     public Farmer addFarmerIfFieldEmpty(int x, int y) {
 
         if(canAddActorIfFieldEmpty(x,y)){
-            ActorWorld world = new ActorWorld();
 
             Farmer farmer = new Farmer();
             world.add(farmer);
@@ -157,7 +154,6 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
     public CreatorFarmer addCreatorFarmerIfFieldEmpty(int x, int y) {
 
         if(canAddActorIfFieldEmpty(x,y)){
-            ActorWorld world = new ActorWorld();
 
             CreatorFarmer creatorFarmer = new CreatorFarmer();
             world.add(creatorFarmer);
@@ -174,7 +170,6 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
     public MilkStorage addMilkStorageIfFieldEmpty(int x, int y) {
 
         if(canAddActorIfFieldEmpty(x,y)){
-            ActorWorld world = new ActorWorld();
 
             MilkStorage milkStorage = new MilkStorage();
             world.add(milkStorage);
@@ -191,7 +186,6 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
     public GoatMilker addGoatMilkerIfFieldEmpty(int x, int y) {
 
         if(canAddActorIfFieldEmpty(x,y)){
-            ActorWorld world = new ActorWorld();
 
             GoatMilker goatMilker = new GoatMilker();
             world.add(goatMilker);
@@ -208,7 +202,6 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
     public Flower addFlowerIfFieldEmpty(int x, int y) {
 
         if(canAddActorIfFieldEmpty(x,y)){
-            ActorWorld world = new ActorWorld();
 
             Flower flower = new Flower();
             world.add(flower);
@@ -225,7 +218,6 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
     public Rock addRockIfFieldEmpty(int x, int y) {
 
         if(canAddActorIfFieldEmpty(x,y)){
-            ActorWorld world = new ActorWorld();
 
             Rock rock = new Rock();
             world.add(rock);
@@ -240,8 +232,7 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
 
     public boolean canAddActorIfFieldEmpty(int x, int y)
     {
-        ActorWorld actorWorld = new ActorWorld();
-        Grid<Actor> gr = actorWorld.getGrid();
+        Grid<Actor> gr = world.getGrid();
 
         if (gr == null)
             return false;
@@ -254,8 +245,7 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
 
     public boolean canGetToStringOfActorInField(int x, int y)
     {
-        ActorWorld actorWorld = new ActorWorld();
-        Grid<Actor> gr = actorWorld.getGrid();
+        Grid<Actor> gr = world.getGrid();
 
         if (gr == null)
             return false;
@@ -276,9 +266,8 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
 
         if(canGetToStringOfActorInField(x,y)){
 
-        ActorWorld actorWorld = new ActorWorld();
 
-        Grid<Actor> gr = actorWorld.getGrid();
+        Grid<Actor> gr = world.getGrid();
 /*        if (gr == null)
             return false;*/
         Location loc = new Location(x,y);
