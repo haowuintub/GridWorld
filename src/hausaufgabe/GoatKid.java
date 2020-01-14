@@ -1,15 +1,12 @@
 package hausaufgabe;
 
-//import apple.laf.JRSUIConstants;
+//import apple.laf.JRSUIConstants; ---> ????????????????????????? <------------
 import gridworld.framework.actor.Actor;
 import gridworld.framework.actor.Rock;
 import gridworld.framework.grid.Grid;
 import gridworld.framework.grid.Location;
 
 import java.awt.*;
-
-import static hausaufgabe.FarmWorldRunner.countGoatNumber;
-
 
 /**
  * @ Hao Wu, Stefan Schulz
@@ -282,23 +279,22 @@ public class GoatKid extends Animal {
 
     @Override
     public void act() {
-        if (canMove()){
+        if (age > 2) {
+            Location loc = this.getLocation() ;
+            Grid<Actor> gr = this.getGrid() ;
+            this.removeSelfFromGrid();
+            Goat goat = new Goat(age);
+            goat.putSelfInGrid(gr, loc);
+            return;
+        }
+        if (canMove()) {
             move();
-            if (age > 2) {
-                Location loc = this.getLocation() ;
-                Grid<Actor> gr = this.getGrid() ;
-                this.removeSelfFromGrid();
-                Goat goat = new Goat();
-                goat.putSelfInGrid(gr, loc);
-                return;
-            }
             climb();
-        } else{
+        }
+        else {
             turn();
         }
         age++ ;
     }
 
 }
-
-// Muss noch den Fakt, dass ein Goat über Steine springt hinzufügen.
