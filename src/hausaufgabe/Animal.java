@@ -24,6 +24,7 @@ public class Animal extends Actor {
     /**
      * Constructs a red animal.
      */
+//Konstruktor
     public Animal()
     {   age = 0 ;
         setColor(Color.RED);
@@ -99,9 +100,7 @@ public class Animal extends Actor {
         if (!gr.isValid(next))
             return false;
         Actor neighbor = gr.get(next);
-        return (neighbor == null) /*|| (neighbor instanceof Flower)*/;
-        // ok to move into empty location (or onto flower)
-        // not ok to move onto any other actor
+        return (neighbor == null);
     }
 
 

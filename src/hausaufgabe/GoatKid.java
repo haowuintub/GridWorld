@@ -2,7 +2,6 @@ package hausaufgabe;
 
 //import apple.laf.JRSUIConstants;
 import gridworld.framework.actor.Actor;
-import gridworld.framework.actor.Flower;
 import gridworld.framework.actor.Rock;
 import gridworld.framework.grid.Grid;
 import gridworld.framework.grid.Location;
@@ -97,7 +96,7 @@ public class GoatKid extends Animal {
     }
 
 
-    private void climb() {
+    public void climb() {
 
         Grid<Actor> gr = getGrid();
         if (gr == null)
@@ -247,7 +246,7 @@ public class GoatKid extends Animal {
     }
 
 
-    private void moveOnTheRock() {
+    public void moveOnTheRock() {
         Grid<Actor> gr = getGrid();
         if (gr == null)
             return;
@@ -283,13 +282,9 @@ public class GoatKid extends Animal {
 
     @Override
     public void act() {
-
-//        super.act();
-
         if (canMove()){
             move();
-
-            if (age > 3) {
+            if (age > 2) {
                 Location loc = this.getLocation() ;
                 Grid<Actor> gr = this.getGrid() ;
                 this.removeSelfFromGrid();
@@ -297,7 +292,6 @@ public class GoatKid extends Animal {
                 goat.putSelfInGrid(gr, loc);
                 return;
             }
-
             climb();
         } else{
             turn();
@@ -308,5 +302,3 @@ public class GoatKid extends Animal {
 }
 
 // Muss noch den Fakt, dass ein Goat über Steine springt hinzufügen.
-
-// Muss noch GoatMilk-Status hinzufügen + removeMilkofGoat() mit Milk --> MilkStorage

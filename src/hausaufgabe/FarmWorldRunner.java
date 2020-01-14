@@ -27,26 +27,26 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
     public static void main(String[] args) {
 
         FarmWorldRunner farmWorldRunner = new FarmWorldRunner() ;
-        ActorWorld bauernhof = farmWorldRunner.createNewWorldWithGridSize(20, 20);
+        ActorWorld world = farmWorldRunner.createNewWorldWithGridSize(20, 20);
 
 
-        farmWorldRunner.addAnimalIfFieldEmpty(9,2);
-        farmWorldRunner.addGoatIfFieldEmpty(5,5);
-        farmWorldRunner.addFarmerIfFieldEmpty(3,8);
+//        farmWorldRunner.addAnimalIfFieldEmpty(9,2);
+        Actor goat = farmWorldRunner.addGoatIfFieldEmpty(5,5);
+        Actor farmer = farmWorldRunner.addFarmerIfFieldEmpty(3,8);
 /*        farmWorldRunner.addFarmerIfFieldEmpty(9,14);
         farmWorldRunner.addMilkStorageIfFieldEmpty(3,5);
         farmWorldRunner.addGoatMilkerIfFieldEmpty(7,8);
-        farmWorldRunner.addRockIfFieldEmpty(11,5);
-        farmWorldRunner.addRockIfFieldEmpty(12,5);
-        farmWorldRunner.addRockIfFieldEmpty(13,5);
-*/
+*/        Actor rock = farmWorldRunner.addRockIfFieldEmpty(1,5);
+        farmWorldRunner.addRockIfFieldEmpty(2,5);
+        farmWorldRunner.addRockIfFieldEmpty(3,5);
+
 
 // In jedem Zeitschritt muss CratorFarmer GoatNumber prüfen. Einfach in class creatorFarmer auslagern?
         CreatorFarmer creatorFarmer = farmWorldRunner.addCreatorFarmerIfFieldEmpty(15,19);
         /*if(goat.getCountGoatNumber() == 0){
             creatorFarmer.checkGoatNumber();
         }*/
-        creatorFarmer.checkGoatNumber();
+//        creatorFarmer.checkGoatNumber();
 
 
 

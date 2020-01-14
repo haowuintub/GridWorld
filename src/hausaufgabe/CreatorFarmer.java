@@ -14,7 +14,6 @@ import static hausaufgabe.FarmWorldRunner.countGoatNumber;
 
 public class CreatorFarmer extends Farmer {
 
-/*    public static int countGoatNumber = 0 ;*/
 
     void checkGoatNumber(){
 
