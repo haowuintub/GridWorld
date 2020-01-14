@@ -30,13 +30,12 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
         ActorWorld world = farmWorldRunner.createNewWorldWithGridSize(20, 20);
 
 
-//        farmWorldRunner.addAnimalIfFieldEmpty(9,2);
         Actor goat = farmWorldRunner.addGoatIfFieldEmpty(5,5);
         Actor farmer = farmWorldRunner.addFarmerIfFieldEmpty(3,8);
-/*        farmWorldRunner.addFarmerIfFieldEmpty(9,14);
+        farmWorldRunner.addFarmerIfFieldEmpty(9,14);
         farmWorldRunner.addMilkStorageIfFieldEmpty(3,5);
         farmWorldRunner.addGoatMilkerIfFieldEmpty(7,8);
-*/        Actor rock = farmWorldRunner.addRockIfFieldEmpty(1,5);
+        Actor rock = farmWorldRunner.addRockIfFieldEmpty(1,5);
         farmWorldRunner.addRockIfFieldEmpty(2,5);
         farmWorldRunner.addRockIfFieldEmpty(3,5);
 
@@ -48,39 +47,26 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
         }*/
 //        creatorFarmer.checkGoatNumber();
 
-
     }
 
     @Override
     public ActorWorld createNewWorldWithGridSize(int x, int y) {
 
-        world = new ActorWorld(new BoundedGrid<Actor>(x, y));
-
-          BoundedGrid<Actor> boundedGrid = new BoundedGrid<Actor>(x, y);
-
-
-/*        Grid<T> gr;
-        int DEFAULT_ROWS ;
-        int DEFAULT_COLS ;
-
-        this(new BoundedGrid<T>(DEFAULT_ROWS, DEFAULT_COLS));
-        message = null;*/
-
+        world = new ActorWorld(new BoundedGrid<>(x, y));
         return world;
     }
 
     @Override
     public Animal addAnimalIfFieldEmpty(int x, int y) {
 
-        if(canAddActorIfFieldEmpty(x,y)){
-
+        if(canAddActorIfFieldEmpty(x,y)) {
 
             Animal animal = new Animal();
             world.add(animal);
             world.show();
-
             return animal;
-        }else{
+        }
+        else {
             return null ;
         }
 
@@ -94,9 +80,9 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
             Goat goat = new Goat();
             world.add(goat);
             world.show();
-
             return goat;
-        }else{
+        }
+        else{
             return null ;
         }
 
@@ -110,9 +96,9 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
             GoatKid goatKid = new GoatKid();
             world.add(goatKid);
             world.show();
-
             return goatKid;
-        }else{
+        }
+        else{
             return null ;
         }
 
@@ -126,9 +112,9 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
             Farmer farmer = new Farmer();
             world.add(farmer);
             world.show();
-
             return farmer;
-        }else{
+        }
+        else{
             return null ;
         }
 
@@ -142,9 +128,9 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
             CreatorFarmer creatorFarmer = new CreatorFarmer();
             world.add(creatorFarmer);
             world.show();
-
             return creatorFarmer;
-        }else{
+        }
+        else{
             return null ;
         }
 
@@ -158,9 +144,9 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
             MilkStorage milkStorage = new MilkStorage();
             world.add(milkStorage);
             world.show();
-
             return milkStorage;
-        }else{
+        }
+        else{
             return null ;
         }
 
@@ -174,9 +160,9 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
             GoatMilker goatMilker = new GoatMilker();
             world.add(goatMilker);
             world.show();
-
             return goatMilker;
-        }else{
+        }
+        else{
             return null ;
         }
 
@@ -190,9 +176,9 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
             Flower flower = new Flower();
             world.add(flower);
             world.show();
-
             return flower;
-        }else{
+        }
+        else{
             return null ;
         }
 
@@ -206,9 +192,9 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
             Rock rock = new Rock();
             world.add(rock);
             world.show();
-
             return rock;
-        }else{
+        }
+        else{
             return null ;
         }
 
@@ -224,7 +210,7 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
         if (!gr.isValid(loc))
             return false;
         Actor neighbor = gr.get(loc);
-        return (neighbor == null);/*|| (neighbor instanceof Flower)*/
+        return (neighbor == null);
     }
 
     public boolean canGetToStringOfActorInField(int x, int y)
@@ -237,11 +223,7 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
         if (!gr.isValid(loc))
             return false;
         Actor neighbor = gr.get(loc);
-        if(neighbor == null/*|| (neighbor instanceof Flower)*/){
-            return false;
-        }else{
-            return true;
-        }
+        return neighbor != null;
     }
 
 
@@ -250,20 +232,16 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
 
         if(canGetToStringOfActorInField(x,y)){
 
-
-        Grid<Actor> gr = world.getGrid();
-/*        if (gr == null)
-            return false;*/
-        Location loc = new Location(x,y);
-        Actor actor = gr.get(loc);
-        return actor.toString() ;
-
-        }else{
+            Grid<Actor> gr = world.getGrid();
+            Location loc = new Location(x,y);
+            Actor actor = gr.get(loc);
+            return actor.toString() ;
+        }
+        else{
             return null ;
         }
-
-//        return null;
     }
+
 
     @Override
     public void runNSteps(int n) {
