@@ -145,15 +145,15 @@ public class GoatKid extends Animal {
             return;
         }
 
-        int changedDirection = getDirection() ;
+        int changedDirection = getDirection() ; // ???????????????????????
 
 
         int r = Math.abs(20-loc.getRow());
         int c = Math.abs(20-loc.getCol());
-        int g = Math.abs(20-loc.getCol());
+        int g;
         if(r>c){g=r;}else{g=c;}
 
-        Location next = loc.getAdjacentLocation(getDirection());
+        Location next = loc.getAdjacentLocation(getDirection()); // ???????????
         for (int i=0;i<g;i++){
             moveOnTheRock();
         }
