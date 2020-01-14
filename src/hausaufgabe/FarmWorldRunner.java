@@ -33,13 +33,13 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
         farmWorldRunner.addAnimalIfFieldEmpty(9,2);
         farmWorldRunner.addGoatIfFieldEmpty(5,5);
         farmWorldRunner.addFarmerIfFieldEmpty(3,8);
-        farmWorldRunner.addFarmerIfFieldEmpty(9,14);
+/*        farmWorldRunner.addFarmerIfFieldEmpty(9,14);
         farmWorldRunner.addMilkStorageIfFieldEmpty(3,5);
-//        farmWorldRunner.addGoatMilkerIfFieldEmpty(7,8);
+        farmWorldRunner.addGoatMilkerIfFieldEmpty(7,8);
         farmWorldRunner.addRockIfFieldEmpty(11,5);
         farmWorldRunner.addRockIfFieldEmpty(12,5);
         farmWorldRunner.addRockIfFieldEmpty(13,5);
-
+*/
 
 // In jedem Zeitschritt muss CratorFarmer GoatNumber prüfen. Einfach in class creatorFarmer auslagern?
         CreatorFarmer creatorFarmer = farmWorldRunner.addCreatorFarmerIfFieldEmpty(15,19);
@@ -73,7 +73,7 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
         ActorWorld world = new ActorWorld(new BoundedGrid<Actor>(x, y));
 
           BoundedGrid<Actor> boundedGrid = new BoundedGrid<Actor>(x, y);
-          ActorWorld world = new ActorWorld(boundedGrid);
+
 
 /*        Grid<T> gr;
         int DEFAULT_ROWS ;
