@@ -1,6 +1,6 @@
 package hausaufgabe;
 
-import apple.laf.JRSUIConstants;
+//import apple.laf.JRSUIConstants;
 import gridworld.framework.actor.Actor;
 import gridworld.framework.actor.Critter;
 import gridworld.framework.actor.Flower;

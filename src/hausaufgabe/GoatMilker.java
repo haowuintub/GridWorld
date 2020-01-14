@@ -49,9 +49,9 @@ public class GoatMilker extends Farmer {
                 neighbor.removeSelfFromGrid();
 //            flowersEaten++;
             }
-            if (neighbor instanceof Goat) {
-                neighbor.removeMilkofGoat(); // herausfinden ob sinnvoll
-            }
+//            if (neighbor instanceof Goat) {
+//                neighbor.removeMilkofGoat(); // herausfinden ob sinnvoll
+//            }
         }
 
     }

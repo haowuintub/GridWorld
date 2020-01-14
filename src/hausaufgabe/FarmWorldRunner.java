@@ -19,38 +19,29 @@ import gridworld.framework.grid.Location;
  */
 public class FarmWorldRunner implements FarmWorldRunnerInterface {
 
+//Attribute
     public static int countGoatNumber = 0 ;
 
+
+    //main
     public static void main(String[] args) {
 
         FarmWorldRunner farmWorldRunner = new FarmWorldRunner() ;
-
-//        ActorWorld bauernhof = new ActorWorld();
         ActorWorld bauernhof = farmWorldRunner.createNewWorldWithGridSize(20, 20);
 
-//        farmWorldRunner.addAnimalIfFieldEmpty(9,2);
-/*        Goat goat = */farmWorldRunner.addGoatIfFieldEmpty(5,5);
-//        goat.getCountGoatNumber();
+
+        farmWorldRunner.addAnimalIfFieldEmpty(9,2);
+        farmWorldRunner.addGoatIfFieldEmpty(5,5);
         farmWorldRunner.addFarmerIfFieldEmpty(3,8);
         farmWorldRunner.addFarmerIfFieldEmpty(9,14);
         farmWorldRunner.addMilkStorageIfFieldEmpty(3,5);
-        farmWorldRunner.addGoatMilkerIfFieldEmpty(7,8);
+//        farmWorldRunner.addGoatMilkerIfFieldEmpty(7,8);
         farmWorldRunner.addRockIfFieldEmpty(11,5);
         farmWorldRunner.addRockIfFieldEmpty(12,5);
         farmWorldRunner.addRockIfFieldEmpty(13,5);
 
-/*        bauernhof.add(new Goat());
-//        bauernhof.add(new GoatKid());
-        bauernhof.add(new Farmer());
-        bauernhof.add(new Farmer());
-        bauernhof.add(new MilkStorage());
-        bauernhof.add(new GoatMilker());
-        bauernhof.show();*/
 
-//        goatNumber++;
-        //hier sinnvoll???
-
-// hier sinnvoll??
+// In jedem Zeitschritt muss CratorFarmer GoatNumber prüfen. Einfach in class creatorFarmer auslagern?
         CreatorFarmer creatorFarmer = farmWorldRunner.addCreatorFarmerIfFieldEmpty(15,19);
         /*if(goat.getCountGoatNumber() == 0){
             creatorFarmer.checkGoatNumber();
@@ -59,7 +50,7 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
 
 
 
-
+// bitte erklären!
        /* Thread thread = new Thread(new FarmWorldRunner());
         thread.start();
         try {
@@ -74,12 +65,12 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
     }
 
 
-
+// hmmmmm... bei @override stellt sich mir die Frage, ob jedes Mal eine neue new ActorWorld erstellt werden muss, wenn addXXXIFFieldIsEmpty() läuft.
 
     @Override
     public ActorWorld createNewWorldWithGridSize(int x, int y) {
 
-//        ActorWorld world = new ActorWorld(new BoundedGrid<Actor>(x, y));
+        ActorWorld world = new ActorWorld(new BoundedGrid<Actor>(x, y));
 
           BoundedGrid<Actor> boundedGrid = new BoundedGrid<Actor>(x, y);
           ActorWorld world = new ActorWorld(boundedGrid);
@@ -118,7 +109,6 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
             ActorWorld world = new ActorWorld();
 
             Goat goat = new Goat();
-            countGoatNumber++;
             world.add(goat);
             world.show();
 

@@ -1,6 +1,6 @@
 package hausaufgabe;
 
-import apple.laf.JRSUIConstants;
+//import apple.laf.JRSUIConstants;
 import gridworld.framework.actor.Actor;
 import gridworld.framework.actor.Flower;
 import gridworld.framework.actor.Rock;
@@ -10,34 +10,22 @@ import gridworld.framework.grid.Location;
 import java.awt.*;
 
 import static hausaufgabe.FarmWorldRunner.countGoatNumber;
-/*import static hausaufgabe.CreatorFarmer.countGoatNumber;*/
+
 
 /**
- * @ Hao Wu
+ * @ Hao Wu, Stefan Schulz
  */
 
 public class Goat extends Animal {
 
-//    private int age ;
-//    public int countGoatNumber = 0 ;
-
+//Konstruktor
     public Goat() {
-//        age = 0 ;
         this.setColor(Color.RED);
         countGoatNumber++;
     }
 
-
-
-
-/*    public int getCountGoatNumber(){
-        return countGoatNumber;
-    }*/
-
-
+//Klassenmethoden
     public void move() {
-/*        if (Math.random() <= 1/6) {*/
-
 
         Grid<Actor> gr = getGrid();
         if (gr == null)
@@ -48,7 +36,7 @@ public class Goat extends Animal {
             moveTo(next);
         else{
             removeSelfFromGrid();
-            countGoatNumber = countGoatNumber - 1;
+            countGoatNumber -= 1;
         }
 
 
@@ -104,7 +92,7 @@ public class Goat extends Animal {
                 moveTo(nextNORTHEAST);
             }else{
                 removeSelfFromGrid();
-                countGoatNumber = countGoatNumber - 1;
+                countGoatNumber -= 1;
             }
         }
 
@@ -334,8 +322,5 @@ public class Goat extends Animal {
 }
 
 // Muss noch den Fakt, dass ein Goat über Steine springt hinzufügen.
-
-// Der Counter der Goats wird nicht mit Informationen versorgt.
-// Sprich: Eine Goat wird erstellt --> Counter +1 oder Goat wird removed --> Counter -1 fehlt bisher
 
 // Muss noch GoatMilk-Status hinzufügen + removeMilkofGoat() mit Milk --> MilkStorage
