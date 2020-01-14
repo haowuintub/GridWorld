@@ -16,7 +16,7 @@ import java.util.List;
 
 public class Farmer extends MyOwnCritter {
 
-// Größe von Farmer
+// Attribute
     int height ;
 
     Farmer(){
@@ -28,7 +28,7 @@ public class Farmer extends MyOwnCritter {
     }
 
 
-/*    void eatFlowerAround() {
+    void eatFlowerAround() {
 
         ArrayList<Actor> actors = getActors();
         processActors(actors);
@@ -68,11 +68,11 @@ public class Farmer extends MyOwnCritter {
             Actor neighbor = gr.get(location);
             if (neighbor instanceof Flower) {
                 neighbor.removeSelfFromGrid();
-//            flowersEaten++;
+
             }
         }
 
-    }*/
+    }
 
 
 //    die Anzahl der Blumenwirte variieren
