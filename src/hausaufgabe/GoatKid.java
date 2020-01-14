@@ -58,6 +58,7 @@ public class GoatKid extends Animal {
             else if (gr.isValid(nextSOUTHEAST)) {
                 GoatKid kid = new GoatKid();
                 kid.putSelfInGrid(getGrid(), nextEAST);
+
                 //                  moveTo(nextSOUTHEAST);
             }
             else if (gr.isValid(nextSOUTH)){
