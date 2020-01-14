@@ -32,13 +32,13 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
 
 //        farmWorldRunner.addAnimalIfFieldEmpty(9,2);
         Actor goat = farmWorldRunner.addGoatIfFieldEmpty(5,5);
-//        Actor farmer = farmWorldRunner.addFarmerIfFieldEmpty(3,8);
+        Actor farmer = farmWorldRunner.addFarmerIfFieldEmpty(3,8);
 /*        farmWorldRunner.addFarmerIfFieldEmpty(9,14);
         farmWorldRunner.addMilkStorageIfFieldEmpty(3,5);
         farmWorldRunner.addGoatMilkerIfFieldEmpty(7,8);
 */        Actor rock = farmWorldRunner.addRockIfFieldEmpty(1,5);
         farmWorldRunner.addRockIfFieldEmpty(2,5);
-//        farmWorldRunner.addRockIfFieldEmpty(3,5);
+        farmWorldRunner.addRockIfFieldEmpty(3,5);
 
 
 // In jedem Zeitschritt muss CratorFarmer GoatNumber prüfen. Einfach in class creatorFarmer auslagern?
@@ -49,23 +49,7 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
 //        creatorFarmer.checkGoatNumber();
 
 
-
-// bitte erklären!
-       /* Thread thread = new Thread(new FarmWorldRunner());
-        thread.start();
-        try {
-            Thread.sleep(50L);
-        } catch (InterruptedException e) {
-            System.out.println("catch exception");
-            e.printStackTrace();
-        }
-        thread.interrupt();
-    }*/
-
     }
-
-
-// hmmmmm... bei @override stellt sich mir die Frage, ob jedes Mal eine neue new ActorWorld erstellt werden muss, wenn addXXXIFFieldIsEmpty() läuft.
 
     @Override
     public ActorWorld createNewWorldWithGridSize(int x, int y) {
