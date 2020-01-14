@@ -35,10 +35,10 @@ public class GoatKid extends Animal {
         }
 
 
-        if (Math.random() <= 1/6) {
+        if (Math.random() <= 1./6) {
 
             Location loc = getLocation();
-
+            System.out.println("1/6");
             Location nextEAST = loc.getAdjacentLocation(Location.EAST);
             Location nextSOUTHEAST = loc.getAdjacentLocation(Location.SOUTHEAST);
             Location nextSOUTH = loc.getAdjacentLocation(Location.SOUTH);
@@ -69,23 +69,47 @@ public class GoatKid extends Animal {
 //            flower.putSelfInGrid(gr, loc);
         }*/
 
-            if (gr.isValid(nextEAST))
-                moveTo(nextEAST);
+            if (gr.isValid(nextEAST)) {
+                GoatKid kid = new GoatKid();
+                kid.putSelfInGrid(getGrid(), nextEAST);
+//                    moveTo(nextEAST);
+            }
             else if (gr.isValid(nextSOUTHEAST)) {
-                moveTo(nextSOUTHEAST);
-            } else if (gr.isValid(nextSOUTH))
-                moveTo(nextSOUTH);
+                GoatKid kid = new GoatKid();
+                kid.putSelfInGrid(getGrid(), nextEAST);
+                //                  moveTo(nextSOUTHEAST);
+            }
+            else if (gr.isValid(nextSOUTH)){
+                GoatKid kid = new GoatKid();
+                kid.putSelfInGrid(getGrid(), nextEAST);
+//                    moveTo(nextSOUTH);
+            }
             else if (gr.isValid(nextSOUTHWEST)) {
-                moveTo(nextSOUTHWEST);
-            } else if (gr.isValid(nextWEST))
-                moveTo(nextWEST);
+                GoatKid kid = new GoatKid();
+                kid.putSelfInGrid(getGrid(), nextEAST);
+//                    moveTo(nextSOUTHWEST);
+            }
+            else if (gr.isValid(nextWEST)) {
+                GoatKid kid = new GoatKid();
+                kid.putSelfInGrid(getGrid(), nextEAST);
+//                    moveTo(nextWEST);
+            }
             else if (gr.isValid(nextNORTHWEST)) {
-                moveTo(nextNORTHWEST);
-            } else if (gr.isValid(nextNORTH))
-                moveTo(nextNORTH);
+                GoatKid kid = new GoatKid();
+                kid.putSelfInGrid(getGrid(), nextEAST);
+//                    moveTo(nextNORTHWEST);
+            }
+            else if (gr.isValid(nextNORTH)) {
+                GoatKid kid = new GoatKid();
+                kid.putSelfInGrid(getGrid(), nextEAST);
+//                    moveTo(nextNORTH);
+            }
             else if (gr.isValid(nextNORTHEAST)) {
-                moveTo(nextNORTHEAST);
-            }else{
+                GoatKid kid = new GoatKid();
+                kid.putSelfInGrid(getGrid(), nextEAST);
+//                moveTo(nextNORTHEAST);
+            }
+            else {
                 removeSelfFromGrid();
             }
         }

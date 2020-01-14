@@ -64,7 +64,7 @@ public class Goat extends GoatKid {
         if (canMove()){
             move();
 
-            if (Math.random() <= 1/5 && age > 15) {
+            if (Math.random() <= 1./5 && age > 15) {
                 Location loc = this.getLocation() ;
                 Grid<Actor> gr = this.getGrid() ;
                 this.removeSelfFromGrid();

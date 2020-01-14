@@ -32,13 +32,13 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
 
 //        farmWorldRunner.addAnimalIfFieldEmpty(9,2);
         Actor goat = farmWorldRunner.addGoatIfFieldEmpty(5,5);
-        Actor farmer = farmWorldRunner.addFarmerIfFieldEmpty(3,8);
+//        Actor farmer = farmWorldRunner.addFarmerIfFieldEmpty(3,8);
 /*        farmWorldRunner.addFarmerIfFieldEmpty(9,14);
         farmWorldRunner.addMilkStorageIfFieldEmpty(3,5);
         farmWorldRunner.addGoatMilkerIfFieldEmpty(7,8);
 */        Actor rock = farmWorldRunner.addRockIfFieldEmpty(1,5);
         farmWorldRunner.addRockIfFieldEmpty(2,5);
-        farmWorldRunner.addRockIfFieldEmpty(3,5);
+//        farmWorldRunner.addRockIfFieldEmpty(3,5);
 
 
 // In jedem Zeitschritt muss CratorFarmer GoatNumber prüfen. Einfach in class creatorFarmer auslagern?
