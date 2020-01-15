@@ -30,7 +30,8 @@ public class GoatMilker extends Farmer {
     }
     public void act() {
         if (canMilkGoats()) {
-            milkGoats();
+            Goat goat = new Goat();     //Bullshit
+            milkGoats(goat);
         }
         super.act();
     }
