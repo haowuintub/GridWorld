@@ -11,11 +11,11 @@ import gridworld.framework.actor.Actor;
 public class GoatMilker extends Farmer {
 
 //Attribute
-    Actor milkstorage;
+    MilkStorage milkStorage;
 
 //Konstruktor
     public GoatMilker() {
-        milkstorage = new MilkStorage();
+         milkStorage = new MilkStorage();
     }
 
 //Klassenmethoden
@@ -23,10 +23,10 @@ public class GoatMilker extends Farmer {
         //Umgebung prüfen
         return false;
     }
-    void milkGoats(){
-//        Goat.removeMilk();
-//        MilkStorage.addMilk();
-        //Ergebnisse verwenden, wirklich melken!!
+    void milkGoats(Goat goat){
+        goat.removeMilk();
+        milkStorage.addMilk();
+        //beide Funktionsaufrufe funktionieren noch nicht.
     }
     public void act() {
         if (canMilkGoats()) {
