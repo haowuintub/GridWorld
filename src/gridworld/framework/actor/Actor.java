@@ -20,6 +20,7 @@ import gridworld.framework.grid.Grid;
 import gridworld.framework.grid.Location;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 /**
  * An <code>Actor</code> is an entity with a color and direction that can act.
@@ -194,4 +195,43 @@ public class Actor
         return getClass().getName() + "[location=" + location + ",direction="
                 + direction + ",color=" + color + "]";
     }
+
+
+/**Erweiterung
+ *@author: Stefan Schulz
+ */
+
+    public boolean statusAdjacentLocation(Grid<Actor> gr){
+
+        Location loc = getLocation();
+        Location nextEAST = loc.getAdjacentLocation(Location.EAST);
+        Location nextSOUTHEAST = loc.getAdjacentLocation(Location.SOUTHEAST);
+        Location nextSOUTH = loc.getAdjacentLocation(Location.SOUTH);
+        Location nextSOUTHWEST = loc.getAdjacentLocation(Location.SOUTHWEST);
+        Location nextWEST = loc.getAdjacentLocation(Location.WEST);
+        Location nextNORTHWEST = loc.getAdjacentLocation(Location.NORTHWEST);
+        Location nextNORTH = loc.getAdjacentLocation(Location.NORTH);
+        Location nextNORTHEAST = loc.getAdjacentLocation(Location.NORTHEAST);
+
+        ArrayList<Location> locList = new ArrayList<Location>();
+        locList.add(nextEAST);
+        locList.add(nextSOUTHEAST);
+        locList.add(nextSOUTH);
+        locList.add(nextSOUTHWEST);
+        locList.add(nextWEST);
+        locList.add(nextNORTHWEST);
+        locList.add(nextNORTH);
+        locList.add(nextNORTHEAST);
+
+        for (Location l: locList ){
+            if (!gr.isValid(l)) {
+                return false;
+            }
+        }
+    return true;
+    }
+
+
+
+
 }
