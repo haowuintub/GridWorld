@@ -9,10 +9,10 @@ import gridworld.framework.grid.Location;
 import java.awt.*;
 
 /**
- * @ Hao Wu, Stefan Schulz
+ * @author: Stefan Schulz
  */
 
-public class GoatKid extends Animal {
+class GoatKid extends Animal {
 
 //Konstruktor
     GoatKid() {
@@ -38,7 +38,7 @@ public class GoatKid extends Animal {
             Location nextNORTH = loc.getAdjacentLocation(Location.NORTH);
             Location nextNORTHEAST = loc.getAdjacentLocation(Location.NORTHEAST);
 
-            if(statusAdjacentLocation(gr)){
+            if(statusAdjacentLocation(gr)) {
                 int zufallszahl = (int) (Math.random()*8);
                 GoatKid kid = new GoatKid();
                 switch(zufallszahl) {
@@ -78,105 +78,32 @@ public class GoatKid extends Animal {
             moveTo(next);
         }
         else{
-            //climb() inkl. canclimb()
             removeSelfFromGrid();
         }
+    }
 
 
+    public boolean canClimb(Location loc) {
+            Grid<Actor> gr = getGrid();
+            if (gr == null) {
+                return false;
+            }
+            Location next = loc.getAdjacentLocation(getDirection());
+            Actor neighbor = gr.get(next);
+            if (neighbor instanceof Rock) {
+                return true;
+            }
+            else {
+                return false;
+            }
     }
 
 
     public void climb() {
-
-        Grid<Actor> gr = getGrid();
-        if (gr == null)
-            return;
-
-        Location loc = getLocation();
-
-        Location nextEAST = loc.getAdjacentLocation(Location.EAST);
-        Location nextSOUTHEAST = loc.getAdjacentLocation(Location.SOUTHEAST);
-        Location nextSOUTH = loc.getAdjacentLocation(Location.SOUTH);
-        Location nextSOUTHWEST = loc.getAdjacentLocation(Location.SOUTHWEST);
-        Location nextWEST = loc.getAdjacentLocation(Location.WEST);
-        Location nextNORTHWEST = loc.getAdjacentLocation(Location.NORTHWEST);
-        Location nextNORTH = loc.getAdjacentLocation(Location.NORTH);
-        Location nextNORTHEAST = loc.getAdjacentLocation(Location.NORTHEAST);
-
-        Actor neighborEAST = gr.get(nextEAST);
-        Actor neighborSOUTHEAST = gr.get(nextSOUTHEAST);
-        Actor neighborSOUTH = gr.get(nextSOUTH);
-        Actor neighborSOUTHWEST = gr.get(nextSOUTHWEST);
-        Actor neighborWEST = gr.get(nextWEST);
-        Actor neighborNORTHWEST = gr.get(nextNORTHWEST);
-        Actor neighborNORTH = gr.get(nextNORTH);
-        Actor neighborNORTHEAST = gr.get(nextNORTHEAST);
-
-        if (neighborEAST instanceof Rock)
-            setDirection(Location.EAST);
-        else if (neighborSOUTHEAST instanceof Rock) {
-            setDirection(Location.SOUTHEAST);
-        } else if (neighborSOUTH instanceof Rock)
-            setDirection(Location.SOUTH);
-        else if (neighborSOUTHWEST instanceof Rock) {
-            setDirection(Location.SOUTHWEST);
-        } else if (neighborWEST instanceof Rock)
-            setDirection(Location.WEST);
-        else if (neighborNORTHWEST instanceof Rock) {
-            setDirection(Location.NORTHWEST);
-        } else if (neighborNORTH instanceof Rock)
-            setDirection(Location.NORTH);
-        else if (neighborNORTHEAST instanceof Rock) {
-            setDirection(Location.NORTHEAST);
-        }else{
-            return;
-        }
-
-//        int changedDirection = getDirection() ; // ???????????????????????
-
-
-        int r = Math.abs(20-loc.getRow());
-        int c = Math.abs(20-loc.getCol());
-        int g;
-        if(r>c){g=r;}else{g=c;}
-
-//        Location next = loc.getAdjacentLocation(getDirection()); // ???????????
-        for (int i=0;i<g;i++){
-            moveOnTheRock();
-        }
-
-
+        turn();
+        turn();
+        turn();
     }
-
-
-    public void moveOnTheRock() {
-        Grid<Actor> gr = getGrid();
-        if (gr == null)
-            return;
-        Location loc = getLocation();
-        Location next = loc.getAdjacentLocation(getDirection());
-        Actor neighbor = gr.get(next);
-        if (neighbor instanceof Rock) {
-            moveTo(next);
-        }
-        else {
-            removeSelfFromGrid();
-        }
-    }
-
-    /*    public boolean canClimb()
-        {
-            Grid<Actor> gr = getGrid();
-            if (gr == null)
-                return false;
-            Location loc = getLocation();
-            Location next = loc.getAdjacentLocation(getDirection());
-            if (!gr.isValid(next))
-                return false;
-            Actor neighbor = gr.get(next);
-            return (neighbor == null)
-
-        }*/
 
 
     @Override
@@ -191,6 +118,8 @@ public class GoatKid extends Animal {
         }
         if (canMove()) {
             move();
+        }
+        else if (canClimb(this.getLocation())) {
             climb();
         }
         else {
