@@ -14,7 +14,7 @@ import java.awt.*;
 public class Animal extends Actor {
 
 //Attribute
-    public int age ;
+    int age ;
 
 //    public int getAge() {
 //        return age;

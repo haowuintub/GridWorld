@@ -1,12 +1,6 @@
 package hausaufgabe;
 
 import gridworld.framework.actor.Actor;
-import gridworld.framework.actor.Flower;
-import gridworld.framework.grid.Grid;
-import gridworld.framework.grid.Location;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author Stefan Schulz
@@ -17,18 +11,24 @@ public class GoatMilker extends Farmer {
 //Attribute
     public Actor milkstorage;
 
+//Konstruktor
     public GoatMilker() {
         this.milkstorage = new MilkStorage();
     }
 
-    void eatFlowerAround() {
-        super.eatFlowerAround();
-    }
-
-    void canMilkGoats(){
+//Klassenmethoden
+    boolean canMilkGoats(){
         //Umgebung prüfen
+        return false;
     }
     void milkGoats(){
+
         //Ergebnisse verwenden, wirklich melken!!
+    }
+    public void act() {
+        if (canMilkGoats()) {
+            milkGoats();
+        }
+        super.act();
     }
 }

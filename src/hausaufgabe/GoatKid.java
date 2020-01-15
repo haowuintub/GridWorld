@@ -29,16 +29,16 @@ class GoatKid extends Animal {
 
         Location loc = getLocation();
 
-        if (Math.random() <= 1./6 && statusAdjacentLocation(gr)) {
+        if (Math.random() <= 1./6) {
 
-            Location nextEAST = loc.getAdjacentLocation(Location.EAST);
-            Location nextSOUTHEAST = loc.getAdjacentLocation(Location.SOUTHEAST);
-            Location nextSOUTH = loc.getAdjacentLocation(Location.SOUTH);
-            Location nextSOUTHWEST = loc.getAdjacentLocation(Location.SOUTHWEST);
-            Location nextWEST = loc.getAdjacentLocation(Location.WEST);
-            Location nextNORTHWEST = loc.getAdjacentLocation(Location.NORTHWEST);
-            Location nextNORTH = loc.getAdjacentLocation(Location.NORTH);
-            Location nextNORTHEAST = loc.getAdjacentLocation(Location.NORTHEAST);
+            loc.getAdjacentLocation(Location.EAST);
+            loc.getAdjacentLocation(Location.SOUTHEAST);
+            loc.getAdjacentLocation(Location.SOUTH);
+            loc.getAdjacentLocation(Location.SOUTHWEST);
+            loc.getAdjacentLocation(Location.WEST);
+            loc.getAdjacentLocation(Location.NORTHWEST);
+            loc.getAdjacentLocation(Location.NORTH);
+            loc.getAdjacentLocation(Location.NORTHEAST);
 
         }
 
@@ -51,7 +51,7 @@ class GoatKid extends Animal {
         }
     }
 
-    public boolean canClimb() {
+    boolean canClimb() {
             Grid<Actor> gr = getGrid();
             if (gr == null) {
                 return false;
@@ -74,17 +74,12 @@ class GoatKid extends Animal {
                     }
                     neighbor = gr.get(next);
                 }
-                if (!gr.isValid(next)) {
-                    return false;
-                }
-                else {
-                    return true;
-                }
+                return gr.isValid(next);
             }
     return false;
     }
 
-    public void climb() {
+    void climb() {
         Grid<Actor> gr = getGrid();
         if (gr == null) {
             return;
@@ -109,7 +104,7 @@ class GoatKid extends Animal {
             Location loc = this.getLocation() ;
             Grid<Actor> gr = this.getGrid() ;
             this.removeSelfFromGrid();
-            Goat goat = new Goat(age);
+            Goat goat = new Goat(age+1);
             goat.putSelfInGrid(gr, loc);
             return;
         }

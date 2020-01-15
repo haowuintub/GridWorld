@@ -69,7 +69,7 @@ public class Actor
      * Gets the current direction of this actor.
      * @return the direction of this actor, an angle between 0 and 359 degrees
      */
-    public int getDirection()
+    public int getDirection() // muss public sein, da sonst direction nicht angezeigt.
     {
         return direction;
     }
@@ -80,7 +80,7 @@ public class Actor
      * to the angle between 0 and 359 degrees that is equivalent to
      * <code>newDirection</code>.
      */
-    public void setDirection(int newDirection)
+    protected void setDirection(int newDirection)
     {
         direction = newDirection % Location.FULL_CIRCLE;
         if (direction < 0)
@@ -158,7 +158,7 @@ public class Actor
      * <code>newLocation</code> is valid in the grid of this actor
      * @param newLocation the new location
      */
-    public void moveTo(Location newLocation)
+    protected void moveTo(Location newLocation)
     {
         if (grid == null)
             throw new IllegalStateException("This actor is not in a grid.");
@@ -205,7 +205,7 @@ public class Actor
  *@author: Stefan Schulz
  */
 
-    public boolean statusAdjacentLocation(Grid<Actor> gr){
+    protected boolean statusAdjacentLocation(Grid<Actor> gr){
 
         Location loc = getLocation();
         Location nextEAST = loc.getAdjacentLocation(Location.EAST);
@@ -217,7 +217,7 @@ public class Actor
         Location nextNORTH = loc.getAdjacentLocation(Location.NORTH);
         Location nextNORTHEAST = loc.getAdjacentLocation(Location.NORTHEAST);
 
-        ArrayList<Location> locList = new ArrayList<Location>();
+        ArrayList<Location> locList = new ArrayList<>();
         locList.add(nextEAST);
         locList.add(nextSOUTHEAST);
         locList.add(nextSOUTH);

@@ -16,7 +16,7 @@ import static hausaufgabe.FarmWorldRunner.countGoatNumber;
 public class Goat extends GoatKid {
 
 //Attribute
-    public int goatMilk;
+    private int goatMilk;
 
 
 //Konstruktoren
