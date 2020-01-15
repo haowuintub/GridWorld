@@ -6,10 +6,9 @@ import gridworld.framework.grid.Grid;
 import gridworld.framework.grid.Location;
 
 /**
- * @ Stefan Schulz, Hao Wu
- */
-
-/**
+ * @ author: Stefan Schulz, Hao Wu
+ *
+ *
  * This class runs a world that contains a bug and a rock, added at random
  * locations. Click on empty locations to add additional actors. Click on
  * populated locations to invoke methods on their occupants. <br />
@@ -20,32 +19,25 @@ import gridworld.framework.grid.Location;
 public class FarmWorldRunner implements FarmWorldRunnerInterface {
 
 //Attribute
-    public static int countGoatNumber = 0 ;
-    ActorWorld world;
+    static int countGoatNumber = 0 ;
+    private ActorWorld world;
 
     //main
     public static void main(String[] args) {
 
         FarmWorldRunner farmWorldRunner = new FarmWorldRunner() ;
-        ActorWorld world = farmWorldRunner.createNewWorldWithGridSize(20, 20);
+        farmWorldRunner.createNewWorldWithGridSize(20, 20);
 
 
-        Actor goat = farmWorldRunner.addGoatIfFieldEmpty(5,5);
-        Actor farmer = farmWorldRunner.addFarmerIfFieldEmpty(3,8);
+        farmWorldRunner.addGoatIfFieldEmpty(5,5);
+        farmWorldRunner.addFarmerIfFieldEmpty(3,8);
         farmWorldRunner.addFarmerIfFieldEmpty(9,14);
         farmWorldRunner.addMilkStorageIfFieldEmpty(3,5);
         farmWorldRunner.addGoatMilkerIfFieldEmpty(7,8);
-        Actor rock = farmWorldRunner.addRockIfFieldEmpty(1,5);
+        farmWorldRunner.addRockIfFieldEmpty(1,5);
         farmWorldRunner.addRockIfFieldEmpty(2,5);
         farmWorldRunner.addRockIfFieldEmpty(3,5);
-
-
-// In jedem Zeitschritt muss CratorFarmer GoatNumber prüfen. Einfach in class creatorFarmer auslagern?
-        CreatorFarmer creatorFarmer = farmWorldRunner.addCreatorFarmerIfFieldEmpty(15,19);
-        /*if(goat.getCountGoatNumber() == 0){
-            creatorFarmer.checkGoatNumber();
-        }*/
-//        creatorFarmer.checkGoatNumber();
+        farmWorldRunner.addCreatorFarmerIfFieldEmpty(15,19);
 
     }
 
@@ -200,7 +192,7 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
 
     }
 
-    public boolean canAddActorIfFieldEmpty(int x, int y)
+    private boolean canAddActorIfFieldEmpty(int x, int y)
     {
         Grid<Actor> gr = world.getGrid();
 
@@ -213,7 +205,7 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
         return (neighbor == null);
     }
 
-    public boolean canGetToStringOfActorInField(int x, int y)
+    private boolean canGetToStringOfActorInField(int x, int y)
     {
         Grid<Actor> gr = world.getGrid();
 
@@ -245,23 +237,7 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
 
     @Override
     public void runNSteps(int n) {
-
-/*        while(step <= n){
-
-        }*/
-
-
-/*        System.exit(n);*/
-
-
-/*        int num = 0;
-        while (num < n && !Thread.interrupted()) {
-            if ((num % 1000) == 0){
-                System.out.println("--------------" + num);
-            }
-            num++;
-        }*/
-
+        //wird noch benötigt!!!
     }
 
 }
