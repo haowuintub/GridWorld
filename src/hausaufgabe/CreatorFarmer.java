@@ -1,38 +1,41 @@
 package hausaufgabe;
 
-import gridworld.framework.actor.Actor;
-import gridworld.framework.actor.Flower;
+import gridworld.framework.actor.Critter;
 import gridworld.framework.grid.Location;
-
-import java.util.ArrayList;
-
 import static hausaufgabe.FarmWorldRunner.countGoatNumber;
 
 /**
- * @ Hao Wu
+ * @ Hao Wu, Stefan Schulz
  */
 
-public class CreatorFarmer extends Farmer {
+public class CreatorFarmer extends Critter {
+
+//Attribute
+    int height;
+
+    public CreatorFarmer(){
+        height = 180;
+    }
+
 
 
     void checkGoatNumber(){
-
         if(countGoatNumber == 0) {
+            Location loc = getLocation();
+            Location next = loc.getAdjacentLocation(getDirection());
             Goat goat = new Goat();
-            countGoatNumber++;
-
-            Location loc = this.getLocation();
-            Location next = loc.getAdjacentLocation(this.getDirection());
-            goat.moveTo(next);
+            goat.putSelfInGrid(getGrid(),next);
         }
 
     }
 
 
     @Override
-    public void processActors(ArrayList<Actor> actors) {
-        return;
+    public void act() {
+        checkGoatNumber();
+ //       if (canMove()) {
+ //           move();
+ //       }
     }
 
 }
-// muss funktion überprüfen

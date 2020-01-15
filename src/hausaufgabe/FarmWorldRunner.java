@@ -28,15 +28,14 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
         FarmWorldRunner farmWorldRunner = new FarmWorldRunner() ;
         farmWorldRunner.createNewWorldWithGridSize(20, 20);
 
-        farmWorldRunner.addAnimalIfFieldEmpty(2,2);
         farmWorldRunner.addGoatIfFieldEmpty(5,5);
         farmWorldRunner.addGoatIfFieldEmpty(5,2);
 /**        farmWorldRunner.addFarmerIfFieldEmpty(3,8);
         farmWorldRunner.addFarmerIfFieldEmpty(9,14);
         farmWorldRunner.addMilkStorageIfFieldEmpty(3,5);
         farmWorldRunner.addGoatMilkerIfFieldEmpty(7,8);
-        farmWorldRunner.addCreatorFarmerIfFieldEmpty(15,19);
  */
+        farmWorldRunner.addCreatorFarmerIfFieldEmpty(8,9);
         farmWorldRunner.addRockIfFieldEmpty(2,5);
         farmWorldRunner.addRockIfFieldEmpty(0,5);
         farmWorldRunner.addRockIfFieldEmpty(3,5);

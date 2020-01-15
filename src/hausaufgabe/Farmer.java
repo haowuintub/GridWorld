@@ -17,7 +17,7 @@ import java.util.List;
 public class Farmer extends MyOwnCritter {
 
 // Attribute
-    int height ;
+    int height;
 
     Farmer(){
         height = 180 ;

@@ -28,47 +28,18 @@ class GoatKid extends Animal {
         }
 
         Location loc = getLocation();
-        Location nextEAST = loc.getAdjacentLocation(Location.EAST);
-        Location nextSOUTHEAST = loc.getAdjacentLocation(Location.SOUTHEAST);
-        Location nextSOUTH = loc.getAdjacentLocation(Location.SOUTH);
-        Location nextSOUTHWEST = loc.getAdjacentLocation(Location.SOUTHWEST);
-        Location nextWEST = loc.getAdjacentLocation(Location.WEST);
-        Location nextNORTHWEST = loc.getAdjacentLocation(Location.NORTHWEST);
-        Location nextNORTH = loc.getAdjacentLocation(Location.NORTH);
-        Location nextNORTHEAST = loc.getAdjacentLocation(Location.NORTHEAST);
 
         if (Math.random() <= 1./6 && statusAdjacentLocation(gr)) {
 
-            int zufallszahl = (int) (Math.random()*8);
-            GoatKid kid = new GoatKid();
-            switch(zufallszahl) {
-                case 0:
-                    kid.putSelfInGrid(getGrid(), nextEAST);
-                    break;
-                case 1:
-                    kid.putSelfInGrid(getGrid(), nextSOUTHEAST);
-                    break;
-                case 2:
-                    kid.putSelfInGrid(getGrid(), nextSOUTH);
-                    break;
-                case 3:
-                    kid.putSelfInGrid(getGrid(), nextSOUTHWEST);
-                    break;
-                case 4:
-                    kid.putSelfInGrid(getGrid(), nextWEST);
-                    break;
-                case 5:
-                    kid.putSelfInGrid(getGrid(), nextNORTHWEST);
-                    break;
-                case 6:
-                    kid.putSelfInGrid(getGrid(), nextNORTH);
-                    break;
-                case 7:
-                    kid.putSelfInGrid(getGrid(), nextNORTHEAST);
-                    break;
-                default:
-                    break;
-            }
+            Location nextEAST = loc.getAdjacentLocation(Location.EAST);
+            Location nextSOUTHEAST = loc.getAdjacentLocation(Location.SOUTHEAST);
+            Location nextSOUTH = loc.getAdjacentLocation(Location.SOUTH);
+            Location nextSOUTHWEST = loc.getAdjacentLocation(Location.SOUTHWEST);
+            Location nextWEST = loc.getAdjacentLocation(Location.WEST);
+            Location nextNORTHWEST = loc.getAdjacentLocation(Location.NORTHWEST);
+            Location nextNORTH = loc.getAdjacentLocation(Location.NORTH);
+            Location nextNORTHEAST = loc.getAdjacentLocation(Location.NORTHEAST);
+
         }
 
         Location next = loc.getAdjacentLocation(getDirection());
