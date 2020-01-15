@@ -2,6 +2,8 @@ package hausaufgabe;
 
 import gridworld.framework.actor.Actor;
 
+
+
 /**
  * @author Stefan Schulz
  */
@@ -9,11 +11,11 @@ import gridworld.framework.actor.Actor;
 public class GoatMilker extends Farmer {
 
 //Attribute
-    public Actor milkstorage;
+    Actor milkstorage;
 
 //Konstruktor
     public GoatMilker() {
-        this.milkstorage = new MilkStorage();
+        milkstorage = new MilkStorage();
     }
 
 //Klassenmethoden
@@ -22,7 +24,8 @@ public class GoatMilker extends Farmer {
         return false;
     }
     void milkGoats(){
-
+        Goat.removeMilk();
+        MilkStorage.addMilk();
         //Ergebnisse verwenden, wirklich melken!!
     }
     public void act() {
