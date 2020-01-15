@@ -15,7 +15,7 @@ import java.awt.*;
 public class GoatKid extends Animal {
 
 //Konstruktor
-    public GoatKid() {
+    GoatKid() {
         this.setColor(Color.RED);
     }
 
@@ -132,7 +132,7 @@ public class GoatKid extends Animal {
             return;
         }
 
-        int changedDirection = getDirection() ; // ???????????????????????
+//        int changedDirection = getDirection() ; // ???????????????????????
 
 
         int r = Math.abs(20-loc.getRow());
@@ -140,7 +140,7 @@ public class GoatKid extends Animal {
         int g;
         if(r>c){g=r;}else{g=c;}
 
-        Location next = loc.getAdjacentLocation(getDirection()); // ???????????
+//        Location next = loc.getAdjacentLocation(getDirection()); // ???????????
         for (int i=0;i<g;i++){
             moveOnTheRock();
         }
@@ -203,7 +203,7 @@ public class GoatKid extends Animal {
 
 
 
-/*  WICHTIG FÜR HERDENTRIEB
+/**  WICHTIG FÜR HERDENTRIEB
 
         if (gr.isValid(nextEAST)) {
                 GoatKid kid = new GoatKid();

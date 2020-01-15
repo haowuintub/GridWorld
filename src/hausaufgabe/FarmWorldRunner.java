@@ -30,14 +30,17 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
 
 
         farmWorldRunner.addGoatIfFieldEmpty(5,5);
-        farmWorldRunner.addFarmerIfFieldEmpty(3,8);
+        farmWorldRunner.addGoatIfFieldEmpty(5,2);
+/**        farmWorldRunner.addFarmerIfFieldEmpty(3,8);
         farmWorldRunner.addFarmerIfFieldEmpty(9,14);
         farmWorldRunner.addMilkStorageIfFieldEmpty(3,5);
         farmWorldRunner.addGoatMilkerIfFieldEmpty(7,8);
+        farmWorldRunner.addCreatorFarmerIfFieldEmpty(15,19);
+ */
         farmWorldRunner.addRockIfFieldEmpty(1,5);
         farmWorldRunner.addRockIfFieldEmpty(2,5);
         farmWorldRunner.addRockIfFieldEmpty(3,5);
-        farmWorldRunner.addCreatorFarmerIfFieldEmpty(15,19);
+
 
     }
 
@@ -45,6 +48,7 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
     public ActorWorld createNewWorldWithGridSize(int x, int y) {
 
         world = new ActorWorld(new BoundedGrid<>(x, y));
+        world.show();
         return world;
     }
 
@@ -54,8 +58,7 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
         if(canAddActorIfFieldEmpty(x,y)) {
 
             Animal animal = new Animal();
-            world.add(animal);
-            world.show();
+            animal.putSelfInGrid(world.getGrid(), new Location(x,y));
             return animal;
         }
         else {
@@ -70,8 +73,7 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
         if(canAddActorIfFieldEmpty(x,y)){
 
             Goat goat = new Goat();
-            world.add(goat);
-            world.show();
+            goat.putSelfInGrid(world.getGrid(), new Location(x,y));
             return goat;
         }
         else{
@@ -86,8 +88,7 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
         if(canAddActorIfFieldEmpty(x,y)){
 
             GoatKid goatKid = new GoatKid();
-            world.add(goatKid);
-            world.show();
+            goatKid.putSelfInGrid(world.getGrid(),new Location(x,y));
             return goatKid;
         }
         else{
@@ -102,8 +103,7 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
         if(canAddActorIfFieldEmpty(x,y)){
 
             Farmer farmer = new Farmer();
-            world.add(farmer);
-            world.show();
+            farmer.putSelfInGrid(world.getGrid(), new Location(x,y));
             return farmer;
         }
         else{
@@ -118,8 +118,7 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
         if(canAddActorIfFieldEmpty(x,y)){
 
             CreatorFarmer creatorFarmer = new CreatorFarmer();
-            world.add(creatorFarmer);
-            world.show();
+            creatorFarmer.putSelfInGrid(world.getGrid(), new Location(x,y));
             return creatorFarmer;
         }
         else{
@@ -134,8 +133,7 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
         if(canAddActorIfFieldEmpty(x,y)){
 
             MilkStorage milkStorage = new MilkStorage();
-            world.add(milkStorage);
-            world.show();
+            milkStorage.putSelfInGrid(world.getGrid(), new Location(x,y));
             return milkStorage;
         }
         else{
@@ -150,8 +148,7 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
         if(canAddActorIfFieldEmpty(x,y)){
 
             GoatMilker goatMilker = new GoatMilker();
-            world.add(goatMilker);
-            world.show();
+            goatMilker.putSelfInGrid(world.getGrid(), new Location(x,y));
             return goatMilker;
         }
         else{
@@ -166,8 +163,7 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
         if(canAddActorIfFieldEmpty(x,y)){
 
             Flower flower = new Flower();
-            world.add(flower);
-            world.show();
+            flower.putSelfInGrid(world.getGrid(), new Location(x,y));
             return flower;
         }
         else{
@@ -182,8 +178,7 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
         if(canAddActorIfFieldEmpty(x,y)){
 
             Rock rock = new Rock();
-            world.add(rock);
-            world.show();
+            rock.putSelfInGrid(world.getGrid(), new Location(x,y));
             return rock;
         }
         else{
