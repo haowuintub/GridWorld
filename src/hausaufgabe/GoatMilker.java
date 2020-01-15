@@ -24,8 +24,8 @@ public class GoatMilker extends Farmer {
         return false;
     }
     void milkGoats(){
-        Goat.removeMilk();
-        MilkStorage.addMilk();
+//        Goat.removeMilk();
+//        MilkStorage.addMilk();
         //Ergebnisse verwenden, wirklich melken!!
     }
     public void act() {
