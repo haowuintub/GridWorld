@@ -91,13 +91,25 @@ class GoatKid extends Animal {
             Location loc = getLocation();
             int direction = getDirection();
             Location next = loc.getAdjacentLocation(direction);
+            if (!gr.isValid(next)) {
+                return false;
+            }
             Actor neighbor = gr.get(next);
+            if (!gr.isValid(next)) {
+                return false;
+            }
             if (neighbor instanceof Rock) {
                 while (neighbor instanceof Rock) {
                     next = next.getAdjacentLocation(direction);
+                    if (!gr.isValid(next)) {
+                        return false;
+                    }
                     neighbor = gr.get(next);
                 }
-                if (gr.isValid(next)) {
+                if (!gr.isValid(next)) {
+                    return false;
+                }
+                else {
                     return true;
                 }
             }

@@ -88,6 +88,7 @@ public class BoundedGrid<E> extends AbstractGrid<E>
             throw new IllegalArgumentException("Location " + loc
                     + " is not valid");
         return (E) occupantArray[loc.getRow()][loc.getCol()]; // unavoidable warning
+
     }
 
     public E put(Location loc, E obj)
