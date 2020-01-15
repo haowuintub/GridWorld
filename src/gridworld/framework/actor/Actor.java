@@ -18,6 +18,8 @@ package gridworld.framework.actor;
 
 import gridworld.framework.grid.Grid;
 import gridworld.framework.grid.Location;
+import hausaufgabe.Goat;
+import static hausaufgabe.FarmWorldRunner.countGoatNumber;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -131,8 +133,7 @@ public class Actor
      * Removes this actor from its grid. <br />
      * Precondition: This actor is contained in a grid
      */
-    public void removeSelfFromGrid()
-    {
+    public void removeSelfFromGrid() {
         if (grid == null)
             throw new IllegalStateException(
                     "This actor is not contained in a grid.");
@@ -140,7 +141,10 @@ public class Actor
             throw new IllegalStateException(
                     "The grid contains a different actor at location "
                             + location + ".");
-
+        Actor actor = getGrid().get(location);
+        if(actor instanceof Goat){
+            countGoatNumber -= 1;
+        }
         grid.remove(location);
         grid = null;
         location = null;

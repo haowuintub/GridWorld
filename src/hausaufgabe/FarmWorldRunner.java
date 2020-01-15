@@ -19,7 +19,7 @@ import gridworld.framework.grid.Location;
 public class FarmWorldRunner implements FarmWorldRunnerInterface {
 
 //Attribute
-    static int countGoatNumber = 0 ;
+    public static int countGoatNumber = 0 ;
     private ActorWorld world;
 
     //main
@@ -29,7 +29,16 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
         farmWorldRunner.createNewWorldWithGridSize(20, 20);
 
         farmWorldRunner.addGoatIfFieldEmpty(5,5);
-        farmWorldRunner.addGoatIfFieldEmpty(5,2);
+        farmWorldRunner.addFlowerIfFieldEmpty(5,4);
+        farmWorldRunner.addFlowerIfFieldEmpty(6,4);
+        farmWorldRunner.addFlowerIfFieldEmpty(7,4);
+        farmWorldRunner.addFlowerIfFieldEmpty(8,4);
+        farmWorldRunner.addFlowerIfFieldEmpty(9,4);
+        farmWorldRunner.addFlowerIfFieldEmpty(4,4);
+        farmWorldRunner.addFlowerIfFieldEmpty(4,6);
+        farmWorldRunner.addFlowerIfFieldEmpty(5,7);
+        farmWorldRunner.addFlowerIfFieldEmpty(6,3);
+
 /**        farmWorldRunner.addFarmerIfFieldEmpty(3,8);
         farmWorldRunner.addFarmerIfFieldEmpty(9,14);
         farmWorldRunner.addMilkStorageIfFieldEmpty(3,5);

@@ -111,7 +111,6 @@ public class Goat extends GoatKid {
             Location loc = this.getLocation();
             Grid<Actor> gr = this.getGrid();
             this.removeSelfFromGrid();
-            countGoatNumber = countGoatNumber - 1;
             Flower flower = new Flower(getColor());
             flower.putSelfInGrid(gr, loc);
             return;
