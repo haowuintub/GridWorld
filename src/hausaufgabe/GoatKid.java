@@ -83,26 +83,46 @@ class GoatKid extends Animal {
     }
 
 
-    public boolean canClimb(Location loc) {
+    public boolean canClimb() {
             Grid<Actor> gr = getGrid();
             if (gr == null) {
                 return false;
             }
-            Location next = loc.getAdjacentLocation(getDirection());
+            Location loc = getLocation();
+            int direction = getDirection();
+            Location next = loc.getAdjacentLocation(direction);
             Actor neighbor = gr.get(next);
             if (neighbor instanceof Rock) {
-                return true;
+                while (neighbor instanceof Rock) {
+                    next = next.getAdjacentLocation(direction);
+                    neighbor = gr.get(next);
+                }
+                if (gr.isValid(next)) {
+                    return true;
+                }
             }
-            else {
-                return false;
-            }
+    return false;
     }
 
 
     public void climb() {
-        turn();
-        turn();
-        turn();
+        Grid<Actor> gr = getGrid();
+        if (gr == null) {
+            return;
+        }
+        Location loc = getLocation();
+        int direction = getDirection();
+        Location next = loc.getAdjacentLocation(direction);
+        Actor neighbor = gr.get(next);
+        if (neighbor instanceof Rock) {
+            while (neighbor instanceof Rock) {
+                next = next.getAdjacentLocation(direction);
+                neighbor = gr.get(next);
+            }
+            if (gr.isValid(next)) {
+                moveTo(next);
+            }
+        }
     }
 
 
@@ -119,7 +139,7 @@ class GoatKid extends Animal {
         if (canMove()) {
             move();
         }
-        else if (canClimb(this.getLocation())) {
+        else if (canClimb()) {
             climb();
         }
         else {

@@ -50,7 +50,7 @@ public class Goat extends GoatKid {
         if (canMove()){
             move();
         }
-        else if (canClimb(this.getLocation())){
+        else if (canClimb()){
             climb();
         }
         else{
