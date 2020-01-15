@@ -23,10 +23,10 @@ public class GoatMilker extends Farmer {
         //Umgebung prüfen
         return false;
     }
-    void milkGoats(Goat goat){
+    void milkGoats(Goat goat){//übergebe besser keine Goat
+        //hier Goats mit Location suchen, dann jede Goat einzeln melken!
         goat.removeMilk();
         milkStorage.addMilk();
-        //beide Funktionsaufrufe funktionieren noch nicht.
     }
     public void act() {
         if (canMilkGoats()) {
