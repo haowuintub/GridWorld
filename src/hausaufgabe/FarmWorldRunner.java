@@ -42,7 +42,7 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
 //        farmWorldRunner.addFarmerIfFieldEmpty(3,8);
 //        farmWorldRunner.addFarmerIfFieldEmpty(9,14);
         farmWorldRunner.addMilkStorageIfFieldEmpty(3,5);
-        farmWorldRunner.addGoatMilkerIfFieldEmpty(7,8);
+        farmWorldRunner.addGoatMilkerIfFieldEmpty(12,8);
         farmWorldRunner.addCreatorFarmerIfFieldEmpty(8,9);
         farmWorldRunner.addRockIfFieldEmpty(2,5);
         farmWorldRunner.addRockIfFieldEmpty(0,5);
