@@ -2,8 +2,6 @@ package hausaufgabe;
 
 import gridworld.framework.actor.Actor;
 
-
-
 /**
  * @author Stefan Schulz
  */

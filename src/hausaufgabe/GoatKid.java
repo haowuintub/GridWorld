@@ -28,8 +28,8 @@ class GoatKid extends Animal {
         }
 
         Location loc = getLocation();
-
-        if (Math.random() <= 1./6) {
+        final double PROBABILITY_LOOKAROUND = 1./6;
+        if (Math.random() <= PROBABILITY_LOOKAROUND) {
 
             loc.getAdjacentLocation(Location.EAST);
             loc.getAdjacentLocation(Location.SOUTHEAST);
@@ -105,6 +105,7 @@ class GoatKid extends Animal {
             Grid<Actor> gr = this.getGrid() ;
             this.removeSelfFromGrid();
             Goat goat = new Goat(age+1);
+            goat.setDirection(getDirection());
             goat.putSelfInGrid(gr, loc);
             return;
         }
