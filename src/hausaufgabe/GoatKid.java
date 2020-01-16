@@ -97,6 +97,10 @@ class GoatKid extends Animal {
         }
     }
 
+    public void followGoats() {
+        //in Arbeit
+    }
+
 //@Override-Klassenmethoden
     @Override
     public void act() {
