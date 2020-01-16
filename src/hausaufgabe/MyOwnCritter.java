@@ -42,16 +42,16 @@ public class MyOwnCritter extends Critter {
     }
 
 
-    public boolean canMove()
+    public boolean canMove(Location location)
     {
         Grid<Actor> gr = getGrid();
         if (gr == null)
             return false;
-        Location loc = getLocation();
-        Location next = loc.getAdjacentLocation(getDirection());
-        if (!gr.isValid(next))
+/*        Location loc = getLocation();
+        Location next = loc.getAdjacentLocation(getDirection());*/
+        if (!gr.isValid(location))
             return false;
-        Actor neighbor = gr.get(next);
+        Actor neighbor = gr.get(location);
         return (neighbor == null);
     }
 
@@ -76,6 +76,23 @@ public class MyOwnCritter extends Critter {
     }
 
 
+    public void turn()
+    {
+        setDirection(getDirection() + Location.HALF_RIGHT);
+    }
+
+
+/*    @Override
+    public void act()
+    {
+        if (getGrid() == null)
+            return;
+        ArrayList<Actor> actors = getActors();
+        processActors(actors);
+        ArrayList<Location> moveLocs = getMoveLocations();
+        Location loc = selectMoveLocation(moveLocs);
+        makeMove(loc);
+    }*/
 
 
     @Override
@@ -96,54 +113,49 @@ public class MyOwnCritter extends Critter {
         ArrayList<Location> nextLocation = this.getNextLocations();
 
         Grid<Actor> gr = getGrid();
-        if (!(gr == null)){
-            return neighboringActors ;
-        }
+        if (gr == null) {
+            return neighboringActors;
+        } else {
 
-/*        for (Location location : nextLocation) {
-            if(!gr.isValid(location)) {
+        for (Location location : nextLocation) {
+            if(gr.isValid(location)) {
+                Actor neighbor = gr.get(location);
+                neighboringActors.add(neighbor);
 //                nextLocation.remove(location);
             }
-        }*/
-
-        if (gr.isValid(nextLocation.get(0))) {
-            Actor neighborEAST = gr.get(nextLocation.get(0));
-            neighboringActors.add(neighborEAST);
         }
-        else if (gr.isValid(nextLocation.get(1))) {
-            Actor neighborSOUTHEAST = gr.get(nextLocation.get(1));
-            neighboringActors.add(neighborSOUTHEAST);
-        }
-        else if (gr.isValid(nextLocation.get(2))){
-            Actor neighborSOUTH = gr.get(nextLocation.get(2));
-            neighboringActors.add(neighborSOUTH);
-        }
-        else if (gr.isValid(nextLocation.get(3))) {
-            Actor neighborSOUTHWEST = gr.get(nextLocation.get(3));
-            neighboringActors.add(neighborSOUTHWEST);
-        }
-        else if (gr.isValid(nextLocation.get(4))) {
-            Actor neighborWEST = gr.get(nextLocation.get(4));
-            neighboringActors.add(neighborWEST);
-        }
-        else if (gr.isValid(nextLocation.get(5))) {
-            Actor neighborNORTHWEST = gr.get(nextLocation.get(5));
-            neighboringActors.add(neighborNORTHWEST);
-        }
-        else if (gr.isValid(nextLocation.get(6))) {
-            Actor neighborNORTH = gr.get(nextLocation.get(6));
-            neighboringActors.add(neighborNORTH);
-        }
-        else if (gr.isValid(nextLocation.get(7))) {
-            Actor neighborNORTHEAST = gr.get(nextLocation.get(7));
-            neighboringActors.add(neighborNORTHEAST);
-        }
-/*        else {
+            /*if (gr.isValid(nextLocation.get(0))) {
+                Actor neighborEAST = gr.get(nextLocation.get(0));
+                neighboringActors.add(neighborEAST);
+            } else if (gr.isValid(nextLocation.get(1))) {
+                Actor neighborSOUTHEAST = gr.get(nextLocation.get(1));
+                neighboringActors.add(neighborSOUTHEAST);
+            } else if (gr.isValid(nextLocation.get(2))) {
+                Actor neighborSOUTH = gr.get(nextLocation.get(2));
+                neighboringActors.add(neighborSOUTH);
+            } else if (gr.isValid(nextLocation.get(3))) {
+                Actor neighborSOUTHWEST = gr.get(nextLocation.get(3));
+                neighboringActors.add(neighborSOUTHWEST);
+            } else if (gr.isValid(nextLocation.get(4))) {
+                Actor neighborWEST = gr.get(nextLocation.get(4));
+                neighboringActors.add(neighborWEST);
+            } else if (gr.isValid(nextLocation.get(5))) {
+                Actor neighborNORTHWEST = gr.get(nextLocation.get(5));
+                neighboringActors.add(neighborNORTHWEST);
+            } else if (gr.isValid(nextLocation.get(6))) {
+                Actor neighborNORTH = gr.get(nextLocation.get(6));
+                neighboringActors.add(neighborNORTH);
+            } else if (gr.isValid(nextLocation.get(7))) {
+                Actor neighborNORTHEAST = gr.get(nextLocation.get(7));
+                neighboringActors.add(neighborNORTHEAST);
+            }
+*//*        else {
             removeSelfFromGrid();
         }*/
 
-        return neighboringActors ;
-/*        return super.getActors();*/
+            return neighboringActors;
+            /*        return super.getActors();*/
+        }
     }
 
     @Override
@@ -151,11 +163,11 @@ public class MyOwnCritter extends Critter {
         int n = actors.size();
         if (n == 0) {
             return;
-        }
-
-        for (Actor a : actors) {
-            if (a instanceof Flower) {
-                a.removeSelfFromGrid();
+        } else {
+            for (Actor a : actors) {
+                if (a instanceof Flower) {
+                    a.removeSelfFromGrid();
+                }
             }
         }
     }
@@ -163,38 +175,40 @@ public class MyOwnCritter extends Critter {
     @Override
     public ArrayList<Location> getMoveLocations() {
 
-        ArrayList<Location> neighboringLocation = new ArrayList<>();
+        ArrayList<Location> neighboringLocation = this.getNextLocations();
+        ArrayList<Location> neighboringCanMoveLocation = new ArrayList<>();
 
-        Grid<Actor> gr = getGrid();
-        if (gr == null)
-            return neighboringLocation ;
-
-        for (Location location : neighboringLocation) {
-            if(!canMove()) {
-                neighboringLocation.remove(location);
+/*        Grid<Actor> gr = getGrid();
+        if (gr == null) {
+            return neighboringLocation;
+        } else {*/
+            for (Location location : neighboringLocation) {
+                if (canMove(location)) {
+                    neighboringCanMoveLocation.add(location);
+                }
             }
-        }
-
-         return neighboringLocation ;
-/*        return super.getMoveLocations();*/
+            return neighboringCanMoveLocation;
+            /*        return super.getMoveLocations();*/
+        /*}*/
     }
 
     @Override
     public Location selectMoveLocation(ArrayList<Location> locs) {
-        Location theShorterOne = getLocation() ;
-        double difference_TheShorterOne_Before = 1000000000 ;
+        Location theShorterOne = getLocation();
+        double difference_TheShorterOne_Before = 1000000000;
 
         int n = locs.size();
-        if (n == 0)
+        if (n == 0) {
             return getLocation();
+        } else {
+            for (Location location : locs) {
+                theShorterOne = compare(theShorterOne, location, difference_TheShorterOne_Before);
+            }
+            /*        int r = (int) (Math.random() * n);*/
 
-        for (Location location : locs) {
-            theShorterOne = compare(theShorterOne, location, difference_TheShorterOne_Before);
+            return theShorterOne;
+            /*        return super.selectMoveLocation(locs);*/
         }
-/*        int r = (int) (Math.random() * n);*/
-
-        return theShorterOne ;
-/*        return super.selectMoveLocation(locs);*/
     }
 
     @Override
@@ -207,6 +221,7 @@ public class MyOwnCritter extends Critter {
             Location lastLocation = loc.getAdjacentLocation(getDirection());
             moveTo(lastLocation);
             }
+//            turn();
         } else {
             moveTo(loc);
         }
