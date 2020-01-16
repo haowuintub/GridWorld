@@ -81,7 +81,8 @@ public class MyOwnCritter extends Critter {
     @Override
     public ArrayList<Actor> getActors() {
 
-        ArrayList<Actor> neighboringActors = this.getActors();
+//        ArrayList<Actor> neighboringActors = this.getActors();
+        ArrayList<Actor> neighboringActors = new ArrayList<>();
 
               /*  Location loc = getLocation();
         Location nextEAST = loc.getAdjacentLocation(Location.EAST);
