@@ -8,7 +8,7 @@ import static hausaufgabe.FarmWorldRunner.countGoatNumber;
  * @ Hao Wu, Stefan Schulz
  */
 
-public class CreatorFarmer extends Farmer {
+public class CreatorFarmer extends Critter {
 
 //Attribute
     int height;
@@ -30,12 +30,11 @@ public class CreatorFarmer extends Farmer {
     }
 
 
-    @Override
+/*    @Override
     public void act() {
         checkGoatNumber();
  //       if (canMove()) {
  //           move();
  //       }
-    }
-
+    }*/
 }
