@@ -28,7 +28,7 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
         FarmWorldRunner farmWorldRunner = new FarmWorldRunner() ;
         farmWorldRunner.createNewWorldWithGridSize(20, 20);
 
-        farmWorldRunner.addGoatKidIfFieldEmpty(5,5);
+        farmWorldRunner.addGoatIfFieldEmpty(5,5);
         farmWorldRunner.addGoatIfFieldEmpty(5,7);
         farmWorldRunner.addFlowerIfFieldEmpty(5,4);
         farmWorldRunner.addFlowerIfFieldEmpty(6,4);

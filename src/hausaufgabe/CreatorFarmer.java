@@ -2,6 +2,9 @@ package hausaufgabe;
 
 import gridworld.framework.actor.Critter;
 import gridworld.framework.grid.Location;
+
+import java.util.ArrayList;
+
 import static hausaufgabe.FarmWorldRunner.countGoatNumber;
 
 /**
@@ -20,20 +23,18 @@ public class CreatorFarmer extends Critter {
 
     void checkGoatNumber(){
         if(countGoatNumber == 0) {
-            Location loc = getLocation();
-            Location next = loc.getAdjacentLocation(getDirection());
+            ArrayList<Location> freeLocList = freeAdjacentLocation();
+            int locListSize = freeLocList.size();
             Goat goat = new Goat();
-            goat.putSelfInGrid(getGrid(),next);
+            goat.putSelfInGrid(getGrid(), freeLocList.get(locListSize));
         }
 
     }
 
 
-/*    @Override
+
     public void act() {
         checkGoatNumber();
- //       if (canMove()) {
- //           move();
- //       }
-    }*/
+    }
+
 }
