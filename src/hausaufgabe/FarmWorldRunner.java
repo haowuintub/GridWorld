@@ -38,15 +38,20 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
         farmWorldRunner.addFlowerIfFieldEmpty(4,6);
         farmWorldRunner.addFlowerIfFieldEmpty(5,7);
         farmWorldRunner.addFlowerIfFieldEmpty(6,3);
-
+        farmWorldRunner.addFlowerIfFieldEmpty(9,8);
+        farmWorldRunner.addFlowerIfFieldEmpty(4,8);
+        farmWorldRunner.addFlowerIfFieldEmpty(4,9);
+        farmWorldRunner.addFlowerIfFieldEmpty(5,9);
+        farmWorldRunner.addFlowerIfFieldEmpty(6,9);
 //        farmWorldRunner.addFarmerIfFieldEmpty(3,8);
 //        farmWorldRunner.addFarmerIfFieldEmpty(9,14);
-        farmWorldRunner.addMilkStorageIfFieldEmpty(3,5);
-        farmWorldRunner.addGoatMilkerIfFieldEmpty(12,8);
+        farmWorldRunner.addMilkStorageIfFieldEmpty(12,5);
+//        farmWorldRunner.addGoatMilkerIfFieldEmpty(12,8);
         farmWorldRunner.addCreatorFarmerIfFieldEmpty(8,9);
         farmWorldRunner.addRockIfFieldEmpty(2,5);
         farmWorldRunner.addRockIfFieldEmpty(0,5);
         farmWorldRunner.addRockIfFieldEmpty(3,5);
+        farmWorldRunner.runNSteps(10);
 
 
     }
@@ -239,7 +244,9 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
 
     @Override
     public void runNSteps(int n) {
-        //wird noch benötigt!!!
+        for (int i=0; i<n; i++) {
+            world.step();
+        }
     }
 
 }

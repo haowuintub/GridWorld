@@ -205,7 +205,7 @@ public class Actor
  *@author: Stefan Schulz
  */
 
-    protected boolean statusAdjacentLocation(Grid<Actor> gr){
+    public boolean statusAdjacentLocation(Grid<Actor> gr){
 
         Location loc = getLocation();
         Location nextEAST = loc.getAdjacentLocation(Location.EAST);

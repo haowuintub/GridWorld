@@ -22,6 +22,6 @@ public class MilkStorage extends Actor {
     }
 
     public String toString(){
-        return getClass().getName() + "milk=" + milk;
+        return getClass().getName() + "milk=" + this.milk;
     }
 }
