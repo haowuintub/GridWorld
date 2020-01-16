@@ -18,7 +18,6 @@ public class CreatorFarmer extends Critter {
     }
 
 
-
     void checkGoatNumber(){
         if(countGoatNumber == 0) {
             Location loc = getLocation();
