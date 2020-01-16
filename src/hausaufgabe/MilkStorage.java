@@ -5,7 +5,7 @@ import gridworld.framework.actor.Actor;
 public class MilkStorage extends Actor {
 
 //Attribute
-    public int milk;
+    private int milk;
 
 //Konstruktor
     public MilkStorage(){

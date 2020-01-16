@@ -16,15 +16,10 @@ public class Animal extends Actor {
 //Attribute
     public int age ;
 
-//    public int getAge() {
-//        return age;
-//    }
-
-
     /**
      * Constructs a red animal.
      */
-//Konstruktor
+//Konstruktoren
     public Animal()
     {   age = 0 ;
         setColor(Color.RED);
@@ -40,19 +35,24 @@ public class Animal extends Actor {
     }
 
 
-
+//Klassenmethoden
 
     /**
-     * Moves if it can move, turns otherwise.
+     * Tests whether this animal can move forward into a location that is empty or
+     * contains a flower.
+     * @return true if this animal can move.
      */
-    public void act()
+    public boolean canMove()
     {
-        if (canMove()){
-            move();
-            age++;
-        }
-        else
-            turn();
+        Grid<Actor> gr = getGrid();
+        if (gr == null)
+            return false;
+        Location loc = getLocation();
+        Location next = loc.getAdjacentLocation(getDirection());
+        if (!gr.isValid(next))
+            return false;
+        Actor neighbor = gr.get(next);
+        return (neighbor == null);
     }
 
 
@@ -85,23 +85,20 @@ public class Animal extends Actor {
     }
 
 
-    /**
-     * Tests whether this animal can move forward into a location that is empty or
-     * contains a flower.
-     * @return true if this animal can move.
-     */
-    public boolean canMove()
+//@Override-Klassenmethoden
+    @Override
+    public void act()
     {
-        Grid<Actor> gr = getGrid();
-        if (gr == null)
-            return false;
-        Location loc = getLocation();
-        Location next = loc.getAdjacentLocation(getDirection());
-        if (!gr.isValid(next))
-            return false;
-        Actor neighbor = gr.get(next);
-        return (neighbor == null);
+        if (canMove()){
+            move();
+            age++;
+        }
+        else
+            turn();
     }
+
+
+
 
     @Override
     public String toString() {
