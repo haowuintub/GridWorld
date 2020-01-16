@@ -80,9 +80,6 @@ class GoatKid extends Animal {
 
     public void climb() {
         Grid<Actor> gr = getGrid();
-        if (gr == null) {
-            return;
-        }
         Location loc = getLocation();
         int direction = getDirection();
         Location next = loc.getAdjacentLocation(direction);

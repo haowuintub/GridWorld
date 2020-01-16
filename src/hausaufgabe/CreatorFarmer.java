@@ -1,5 +1,6 @@
 package hausaufgabe;
 
+
 import gridworld.framework.actor.Critter;
 import gridworld.framework.grid.Location;
 
@@ -23,10 +24,17 @@ public class CreatorFarmer extends Critter {
 
     void checkGoatNumber(){
         if(countGoatNumber == 0) {
-            ArrayList<Location> freeLocList = freeAdjacentLocation();
+            ArrayList<Location> freeLocList = new ArrayList<>();
+            if(freeAdjacentLocation().size() == 0) {
+                freeLocList.add(getLocation().getAdjacentLocation(Location.NORTH));
+            }
+            else {
+                freeLocList = freeAdjacentLocation();
+            }
             int locListSize = freeLocList.size();
+            int zufallszahl = (int) (Math.random()*locListSize);
             Goat goat = new Goat();
-            goat.putSelfInGrid(getGrid(), freeLocList.get(locListSize));
+            goat.putSelfInGrid(getGrid(), freeLocList.get(zufallszahl));
         }
 
     }

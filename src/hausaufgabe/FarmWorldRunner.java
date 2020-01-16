@@ -34,11 +34,11 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
         farmWorldRunner.addFlowerIfFieldEmpty(6,4);
         farmWorldRunner.addFlowerIfFieldEmpty(7,4);
         farmWorldRunner.addFlowerIfFieldEmpty(8,4);
-        farmWorldRunner.addFlowerIfFieldEmpty(9,4);
-        farmWorldRunner.addFlowerIfFieldEmpty(4,4);
-        farmWorldRunner.addFlowerIfFieldEmpty(4,6);
-        farmWorldRunner.addFlowerIfFieldEmpty(5,7);
-        farmWorldRunner.addFlowerIfFieldEmpty(6,3);
+        farmWorldRunner.addFlowerIfFieldEmpty(5,6);
+        farmWorldRunner.addFlowerIfFieldEmpty(6,6);
+        farmWorldRunner.addFlowerIfFieldEmpty(7,6);
+        farmWorldRunner.addFlowerIfFieldEmpty(5,8);
+        farmWorldRunner.addFlowerIfFieldEmpty(5,6);
         farmWorldRunner.addFlowerIfFieldEmpty(9,8);
         farmWorldRunner.addFlowerIfFieldEmpty(4,8);
         farmWorldRunner.addFlowerIfFieldEmpty(6,9);
@@ -47,7 +47,7 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
         farmWorldRunner.addFarmerIfFieldEmpty(4,9);
         farmWorldRunner.addFarmerIfFieldEmpty(14,14);
         farmWorldRunner.addGoatMilkerIfFieldEmpty(12,8);
-        farmWorldRunner.addCreatorFarmerIfFieldEmpty(8,9);
+        farmWorldRunner.addCreatorFarmerIfFieldEmpty(6,5);
         farmWorldRunner.addRockIfFieldEmpty(2,5);
         farmWorldRunner.addRockIfFieldEmpty(0,5);
         farmWorldRunner.addRockIfFieldEmpty(3,5);
