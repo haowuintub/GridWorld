@@ -28,7 +28,8 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
         FarmWorldRunner farmWorldRunner = new FarmWorldRunner() ;
         farmWorldRunner.createNewWorldWithGridSize(20, 20);
 
-        farmWorldRunner.addGoatIfFieldEmpty(5,5);
+        farmWorldRunner.addGoatIfFieldEmpty(13,8);
+        farmWorldRunner.addGoatIfFieldEmpty(11,9);
         farmWorldRunner.addFlowerIfFieldEmpty(5,4);
         farmWorldRunner.addFlowerIfFieldEmpty(6,4);
         farmWorldRunner.addFlowerIfFieldEmpty(7,4);
@@ -45,13 +46,13 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
         farmWorldRunner.addFlowerIfFieldEmpty(6,9);
 //        farmWorldRunner.addFarmerIfFieldEmpty(3,8);
 //        farmWorldRunner.addFarmerIfFieldEmpty(9,14);
-        farmWorldRunner.addMilkStorageIfFieldEmpty(12,5);
-//        farmWorldRunner.addGoatMilkerIfFieldEmpty(12,8);
+//        MilkStorage milkStorage = farmWorldRunner.addMilkStorageIfFieldEmpty(12,5);
+        farmWorldRunner.addGoatMilkerIfFieldEmpty(12,8);
         farmWorldRunner.addCreatorFarmerIfFieldEmpty(8,9);
         farmWorldRunner.addRockIfFieldEmpty(2,5);
         farmWorldRunner.addRockIfFieldEmpty(0,5);
         farmWorldRunner.addRockIfFieldEmpty(3,5);
-        farmWorldRunner.runNSteps(14);
+//        farmWorldRunner.runNSteps(14);
 
 
     }
@@ -156,10 +157,9 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
 
     @Override
     public GoatMilker addGoatMilkerIfFieldEmpty(int x, int y) {
-
+        MilkStorage milkStorage = addMilkStorageIfFieldEmpty(0,0);
         if(canAddActorIfFieldEmpty(x,y)){
-
-            GoatMilker goatMilker = new GoatMilker();
+            GoatMilker goatMilker = new GoatMilker(milkStorage);
             goatMilker.putSelfInGrid(world.getGrid(), new Location(x,y));
             return goatMilker;
         }
