@@ -36,7 +36,7 @@ public class Goat extends GoatKid {
     }
 
 //Klassenmethoden
-    public void die() {            //Goat dies and is replaced by Flower
+    private void die() {            //Goat dies and is replaced by Flower
         Location loc = this.getLocation();
         Grid<Actor> gr = this.getGrid();
         this.removeSelfFromGrid();

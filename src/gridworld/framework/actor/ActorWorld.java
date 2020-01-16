@@ -57,7 +57,7 @@ public class ActorWorld extends World<Actor>
     public void step()
     {
         Grid<Actor> gr = getGrid();
-        ArrayList<Actor> actors = new ArrayList<Actor>();
+        ArrayList<Actor> actors = new ArrayList<>();
         for (Location loc : gr.getOccupiedLocations())
             actors.add(gr.get(loc));
 

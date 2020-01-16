@@ -14,15 +14,13 @@ import static hausaufgabe.FarmWorldRunner.countGoatNumber;
 
 public class CreatorFarmer extends Critter {
 
-//Attribute
-    int height;
 
-    public CreatorFarmer(){
-        height = 180;
-    }
+//Konstruktor
+    public CreatorFarmer(){}
 
+//Klassenmethoden
 
-    void checkGoatNumber(){
+    private void checkGoatNumber(){
         if(countGoatNumber == 0) {
             ArrayList<Location> freeLocList = new ArrayList<>();
             if(freeAdjacentLocation().size() == 0) {
@@ -39,8 +37,9 @@ public class CreatorFarmer extends Critter {
 
     }
 
+//@Override-Klassenmethoden
 
-
+@Override
     public void act() {
         checkGoatNumber();
     }
