@@ -45,13 +45,12 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
         farmWorldRunner.addFlowerIfFieldEmpty(6,9);
         farmWorldRunner.addFarmerIfFieldEmpty(3,8);
         farmWorldRunner.addFarmerIfFieldEmpty(9,14);
-        farmWorldRunner.addMilkStorageIfFieldEmpty(12,5);
         farmWorldRunner.addGoatMilkerIfFieldEmpty(12,8);
         farmWorldRunner.addCreatorFarmerIfFieldEmpty(8,9);
         farmWorldRunner.addRockIfFieldEmpty(2,5);
         farmWorldRunner.addRockIfFieldEmpty(0,5);
         farmWorldRunner.addRockIfFieldEmpty(3,5);
-        farmWorldRunner.runNSteps(14);
+//        farmWorldRunner.runNSteps(14);
 
 
     }
@@ -158,8 +157,8 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
     public GoatMilker addGoatMilkerIfFieldEmpty(int x, int y) {
 
         if(canAddActorIfFieldEmpty(x,y)){
-
-            GoatMilker goatMilker = new GoatMilker();
+            MilkStorage storage = addMilkStorageIfFieldEmpty(0,0);
+            GoatMilker goatMilker = new GoatMilker(storage);
             goatMilker.putSelfInGrid(world.getGrid(), new Location(x,y));
             return goatMilker;
         }

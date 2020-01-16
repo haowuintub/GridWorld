@@ -9,19 +9,20 @@ public class MilkStorage extends Actor {
 
 //Konstruktor
     public MilkStorage(){
-        this.milk = 0;
+        resetMilkStorage();
     }
 
 //Klassenmethoden
     public void addMilk(){
-        this.milk =+ 1;
+        milk = milk +1;
     }
 
     public void resetMilkStorage(){
-        this.milk = 0;
+        milk = 0;
+        System.out.println("RESET");
     }
 
     public String toString(){
-        return getClass().getName() + "milk=" + this.milk;
+        return ""+milk;
     }
 }
