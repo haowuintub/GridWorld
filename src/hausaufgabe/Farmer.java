@@ -15,54 +15,22 @@ import java.util.ArrayList;
 
 public class Farmer extends Critter {
 
-    // Attribute
+// Attribute
     int height;
 
+
+//Konstruktoren
     Farmer() {
-        height = 300;
+        height = 180;
     }
+
 
     Farmer(int height) {
         this.height = height;
     }
 
 
-    //    die Anzahl der Blumenwirte variieren
-    void farmerRemoveSelfFromGrid(Farmer farmer) {
-        if (farmer == null) {
-            System.out.println("This ist not such farmer!");
-        } else {
-            farmer.removeSelfFromGrid();
-        }
-    }
-
-
-    public ArrayList<Location> getNextLocations() {
-        ArrayList<Location> nextLocation = new ArrayList<>();
-
-        Location loc = getLocation();
-
-        Location nextEAST = loc.getAdjacentLocation(Location.EAST);
-        Location nextSOUTHEAST = loc.getAdjacentLocation(Location.SOUTHEAST);
-        Location nextSOUTH = loc.getAdjacentLocation(Location.SOUTH);
-        Location nextSOUTHWEST = loc.getAdjacentLocation(Location.SOUTHWEST);
-        Location nextWEST = loc.getAdjacentLocation(Location.WEST);
-        Location nextNORTHWEST = loc.getAdjacentLocation(Location.NORTHWEST);
-        Location nextNORTH = loc.getAdjacentLocation(Location.NORTH);
-        Location nextNORTHEAST = loc.getAdjacentLocation(Location.NORTHEAST);
-
-        nextLocation.add(nextEAST);
-        nextLocation.add(nextSOUTHEAST);
-        nextLocation.add(nextSOUTH);
-        nextLocation.add(nextSOUTHWEST);
-        nextLocation.add(nextWEST);
-        nextLocation.add(nextNORTHWEST);
-        nextLocation.add(nextNORTH);
-        nextLocation.add(nextNORTHEAST);
-
-        return nextLocation;
-    }
-
+//Klassenmethoden
 
     public boolean canMove(Location location) {
         Grid<Actor> gr = getGrid();
@@ -104,7 +72,7 @@ public class Farmer extends Critter {
     public ArrayList<Actor> getActors() {
 
         ArrayList<Actor> neighboringActors = new ArrayList<>();
-        ArrayList<Location> nextLocation = this.getNextLocations();
+        ArrayList<Location> nextLocation = adjacentLocation();
 
         Grid<Actor> gr = getGrid();
         if (gr == null) {
@@ -124,45 +92,10 @@ public class Farmer extends Critter {
 
     @Override
     public void processActors(ArrayList<Actor> actors) {
-        int n = actors.size();
-        if (n == 0) {
-            return;
-        } else {
-            for (Actor a : actors) {
-                if (a instanceof Flower) {
-                    a.removeSelfFromGrid();
-                }
+        for (Actor a : actors) {
+            if (a instanceof Flower) {
+               a.removeSelfFromGrid();
             }
-        }
-    }
-
-    @Override
-    public ArrayList<Location> getMoveLocations() {
-
-        ArrayList<Location> neighboringLocation = this.getNextLocations();
-        ArrayList<Location> neighboringCanMoveLocation = new ArrayList<>();
-
-        for (Location location : neighboringLocation) {
-            if (canMove(location)) {
-                neighboringCanMoveLocation.add(location);
-            }
-        }
-        return neighboringCanMoveLocation;
-    }
-
-    @Override
-    public Location selectMoveLocation(ArrayList<Location> locs) {
-        Location theShorterOne = getLocation();
-        double difference_TheShorterOne_Before = 1000000000;
-
-        int n = locs.size();
-        if (n == 0) {
-            return getLocation();
-        } else {
-            for (Location location : locs) {
-                theShorterOne = compare(theShorterOne, location, difference_TheShorterOne_Before);
-            }
-            return theShorterOne;
         }
     }
 

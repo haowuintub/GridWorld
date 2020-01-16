@@ -41,7 +41,7 @@ public class Critter extends Actor
             return;
         ArrayList<Actor> actors = getActors();
         processActors(actors);
-        ArrayList<Location> moveLocs = getMoveLocations();
+        ArrayList<Location> moveLocs = freeAdjacentLocation();
         Location loc = selectMoveLocation(moveLocs);
         makeMove(loc);
     }
@@ -75,19 +75,6 @@ public class Critter extends Actor
             if (!(a instanceof Rock) && !(a instanceof Critter))
                 a.removeSelfFromGrid();
         }
-    }
-
-    /**
-     * Gets a list of possible locations for the next move. These locations must
-     * be valid in the grid of this critter. Implemented to return the empty
-     * neighboring locations. Override this method in subclasses to look
-     * elsewhere for move locations.<br />
-     * Postcondition: The state of all actors is unchanged.
-     * @return a list of possible locations for the next move
-     */
-    public ArrayList<Location> getMoveLocations()
-    {
-        return getGrid().getEmptyAdjacentLocations(getLocation());
     }
 
     /**

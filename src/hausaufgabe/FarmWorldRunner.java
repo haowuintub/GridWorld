@@ -53,7 +53,7 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
         farmWorldRunner.addRockIfFieldEmpty(3,5);
         farmWorldRunner.addRockIfFieldEmpty(8,8);
         farmWorldRunner.addRockIfFieldEmpty(9,8);
-//        farmWorldRunner.runNSteps(14);
+//        farmWorldRunner.runNSteps(50);
 
 
     }
