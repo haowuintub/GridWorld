@@ -96,27 +96,51 @@ public class MyOwnCritter extends Critter {
         ArrayList<Location> nextLocation = this.getNextLocations();
 
         Grid<Actor> gr = getGrid();
-        if (gr == null){
+        if (!(gr == null)){
             return neighboringActors ;
         }
 
-        Actor neighborEAST = gr.get(nextLocation.get(0));
-        Actor neighborSOUTHEAST = gr.get(nextLocation.get(1));
-        Actor neighborSOUTH = gr.get(nextLocation.get(2));
-        Actor neighborSOUTHWEST = gr.get(nextLocation.get(3));
-        Actor neighborWEST = gr.get(nextLocation.get(4));
-        Actor neighborNORTHWEST = gr.get(nextLocation.get(5));
-        Actor neighborNORTH = gr.get(nextLocation.get(6));
-        Actor neighborNORTHEAST = gr.get(nextLocation.get(7));
+/*        for (Location location : nextLocation) {
+            if(!gr.isValid(location)) {
+//                nextLocation.remove(location);
+            }
+        }*/
 
-        neighboringActors.add(neighborEAST);
-        neighboringActors.add(neighborSOUTHEAST);
-        neighboringActors.add(neighborSOUTH);
-        neighboringActors.add(neighborSOUTHWEST);
-        neighboringActors.add(neighborWEST);
-        neighboringActors.add(neighborNORTHWEST);
-        neighboringActors.add(neighborNORTH);
-        neighboringActors.add(neighborNORTHEAST);
+        if (gr.isValid(nextLocation.get(0))) {
+            Actor neighborEAST = gr.get(nextLocation.get(0));
+            neighboringActors.add(neighborEAST);
+        }
+        else if (gr.isValid(nextLocation.get(1))) {
+            Actor neighborSOUTHEAST = gr.get(nextLocation.get(1));
+            neighboringActors.add(neighborSOUTHEAST);
+        }
+        else if (gr.isValid(nextLocation.get(2))){
+            Actor neighborSOUTH = gr.get(nextLocation.get(2));
+            neighboringActors.add(neighborSOUTH);
+        }
+        else if (gr.isValid(nextLocation.get(3))) {
+            Actor neighborSOUTHWEST = gr.get(nextLocation.get(3));
+            neighboringActors.add(neighborSOUTHWEST);
+        }
+        else if (gr.isValid(nextLocation.get(4))) {
+            Actor neighborWEST = gr.get(nextLocation.get(4));
+            neighboringActors.add(neighborWEST);
+        }
+        else if (gr.isValid(nextLocation.get(5))) {
+            Actor neighborNORTHWEST = gr.get(nextLocation.get(5));
+            neighboringActors.add(neighborNORTHWEST);
+        }
+        else if (gr.isValid(nextLocation.get(6))) {
+            Actor neighborNORTH = gr.get(nextLocation.get(6));
+            neighboringActors.add(neighborNORTH);
+        }
+        else if (gr.isValid(nextLocation.get(7))) {
+            Actor neighborNORTHEAST = gr.get(nextLocation.get(7));
+            neighboringActors.add(neighborNORTHEAST);
+        }
+/*        else {
+            removeSelfFromGrid();
+        }*/
 
         return neighboringActors ;
 /*        return super.getActors();*/
