@@ -28,7 +28,8 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
         FarmWorldRunner farmWorldRunner = new FarmWorldRunner() ;
         farmWorldRunner.createNewWorldWithGridSize(20, 20);
 
-        farmWorldRunner.addGoatIfFieldEmpty(5,5);
+        farmWorldRunner.addGoatKidIfFieldEmpty(5,5);
+        farmWorldRunner.addGoatIfFieldEmpty(5,7);
         farmWorldRunner.addFlowerIfFieldEmpty(5,4);
         farmWorldRunner.addFlowerIfFieldEmpty(6,4);
         farmWorldRunner.addFlowerIfFieldEmpty(7,4);
@@ -40,16 +41,18 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
         farmWorldRunner.addFlowerIfFieldEmpty(6,3);
         farmWorldRunner.addFlowerIfFieldEmpty(9,8);
         farmWorldRunner.addFlowerIfFieldEmpty(4,8);
-        farmWorldRunner.addFlowerIfFieldEmpty(4,9);
+        farmWorldRunner.addFlowerIfFieldEmpty(6,9);
         farmWorldRunner.addFlowerIfFieldEmpty(5,9);
         farmWorldRunner.addFlowerIfFieldEmpty(6,9);
-        farmWorldRunner.addFarmerIfFieldEmpty(3,8);
-        farmWorldRunner.addFarmerIfFieldEmpty(9,14);
+        farmWorldRunner.addFarmerIfFieldEmpty(4,9);
+        farmWorldRunner.addFarmerIfFieldEmpty(14,14);
         farmWorldRunner.addGoatMilkerIfFieldEmpty(12,8);
         farmWorldRunner.addCreatorFarmerIfFieldEmpty(8,9);
         farmWorldRunner.addRockIfFieldEmpty(2,5);
         farmWorldRunner.addRockIfFieldEmpty(0,5);
         farmWorldRunner.addRockIfFieldEmpty(3,5);
+        farmWorldRunner.addRockIfFieldEmpty(8,8);
+        farmWorldRunner.addRockIfFieldEmpty(9,8);
 //        farmWorldRunner.runNSteps(14);
 
 
@@ -157,7 +160,7 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
     public GoatMilker addGoatMilkerIfFieldEmpty(int x, int y) {
 
         if(canAddActorIfFieldEmpty(x,y)){
-            MilkStorage storage = addMilkStorageIfFieldEmpty(0,0);
+            MilkStorage storage = addMilkStorageIfFieldEmpty(2,2);
             GoatMilker goatMilker = new GoatMilker(storage);
             goatMilker.putSelfInGrid(world.getGrid(), new Location(x,y));
             return goatMilker;

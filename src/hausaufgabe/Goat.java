@@ -21,7 +21,7 @@ public class Goat extends GoatKid {
 
 
 //Konstruktoren
-    Goat(int age) {                 //used if Goatkid is growing up.
+    public Goat(int age) {                 //used if Goatkid is growing up.
         this.setColor(Color.RED);
         this.age = age;
         this.goatMilk = 2;
@@ -29,14 +29,14 @@ public class Goat extends GoatKid {
     }
 
 
-    Goat() {                        //used if Goat created by CreatorFarmer/ FarmWorldRunner
+    public Goat() {                        //used if Goat created by CreatorFarmer/ FarmWorldRunner
         this.setColor(Color.RED);
         this.goatMilk = 2;
         countGoatNumber++;
     }
 
 //Klassenmethoden
-    private void die() {            //Goat dies and is replaced by Flower
+    public void die() {            //Goat dies and is replaced by Flower
         Location loc = this.getLocation();
         Grid<Actor> gr = this.getGrid();
         this.removeSelfFromGrid();

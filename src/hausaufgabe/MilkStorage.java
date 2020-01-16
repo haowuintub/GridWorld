@@ -19,7 +19,6 @@ public class MilkStorage extends Actor {
 
     public void resetMilkStorage(){
         milk = 0;
-        System.out.println("RESET");
     }
 
     public String toString(){

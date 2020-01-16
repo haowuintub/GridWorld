@@ -15,7 +15,7 @@ import java.awt.*;
 class GoatKid extends Animal {
 
 //Konstruktor
-    GoatKid() {
+    public GoatKid() {
         this.setColor(Color.RED);
     }
 
@@ -39,7 +39,6 @@ class GoatKid extends Animal {
             loc.getAdjacentLocation(Location.NORTHWEST);
             loc.getAdjacentLocation(Location.NORTH);
             loc.getAdjacentLocation(Location.NORTHEAST);
-
         }
 
         Location next = loc.getAdjacentLocation(getDirection());
@@ -51,7 +50,7 @@ class GoatKid extends Animal {
         }
     }
 
-    boolean canClimb() {
+    public boolean canClimb() {
             Grid<Actor> gr = getGrid();
             if (gr == null) {
                 return false;
@@ -74,12 +73,12 @@ class GoatKid extends Animal {
                     }
                     neighbor = gr.get(next);
                 }
-                return gr.isValid(next);
+                return (neighbor == null);
             }
     return false;
     }
 
-    void climb() {
+    public void climb() {
         Grid<Actor> gr = getGrid();
         if (gr == null) {
             return;
@@ -88,18 +87,17 @@ class GoatKid extends Animal {
         int direction = getDirection();
         Location next = loc.getAdjacentLocation(direction);
         Actor neighbor = gr.get(next);
-        if (neighbor instanceof Rock) {
-            while (neighbor instanceof Rock) {
-                next = next.getAdjacentLocation(direction);
-                neighbor = gr.get(next);
-            }
-            moveTo(next);
+        while (neighbor instanceof Rock) {
+            next = next.getAdjacentLocation(direction);
+            neighbor = gr.get(next);
         }
+        moveTo(next);
+
     }
 
-    public void followGoats() {
-        //in Arbeit
-    }
+//    public void followGoats() {
+//        //in Arbeit
+//    }
 
 //@Override-Klassenmethoden
     @Override

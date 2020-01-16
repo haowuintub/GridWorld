@@ -81,7 +81,7 @@ public class Actor
      * to the angle between 0 and 359 degrees that is equivalent to
      * <code>newDirection</code>.
      */
-    protected void setDirection(int newDirection)
+    public void setDirection(int newDirection)
     {
         direction = newDirection % Location.FULL_CIRCLE;
         if (direction < 0)
@@ -159,7 +159,7 @@ public class Actor
      * <code>newLocation</code> is valid in the grid of this actor
      * @param newLocation the new location
      */
-    protected void moveTo(Location newLocation)
+    public void moveTo(Location newLocation)
     {
         if (grid == null)
             throw new IllegalStateException("This actor is not in a grid.");
@@ -205,18 +205,6 @@ public class Actor
 /**Erweiterung
  *@author: Stefan Schulz
  */
-
-    public boolean statusAdjacentLocation(Grid<Actor> gr){
-
-        ArrayList<Location> locList = adjacentLocation();
-
-        for (Location l: locList ){
-            if (!gr.isValid(l)) {
-                return false;
-            }
-        }
-    return true;
-    }
 
     public ArrayList<Location> adjacentLocation() {
 

@@ -20,7 +20,7 @@ public class Farmer extends Critter {
     int height;
 
     Farmer(){
-        height = 180 ;
+        height = 300 ;
     }
 
     Farmer(int height){

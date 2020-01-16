@@ -14,7 +14,7 @@ import java.awt.*;
 public class Animal extends Actor {
 
 //Attribute
-    int age ;
+    public int age ;
 
 //    public int getAge() {
 //        return age;
@@ -103,8 +103,6 @@ public class Animal extends Actor {
         return (neighbor == null);
     }
 
-
-//    Sorgt dafur, dass die graphische Oberfläche das Alter anzeigt, wenn man mit der Maus draufgeht.
     @Override
     public String toString() {
         return getClass().getName() + "[" + ",age=" + age + /*",location=" + location + ",direction="
