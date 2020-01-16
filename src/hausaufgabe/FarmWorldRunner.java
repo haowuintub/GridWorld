@@ -51,7 +51,7 @@ public class FarmWorldRunner implements FarmWorldRunnerInterface {
         farmWorldRunner.addRockIfFieldEmpty(2,5);
         farmWorldRunner.addRockIfFieldEmpty(0,5);
         farmWorldRunner.addRockIfFieldEmpty(3,5);
-        farmWorldRunner.runNSteps(10);
+        farmWorldRunner.runNSteps(14);
 
 
     }

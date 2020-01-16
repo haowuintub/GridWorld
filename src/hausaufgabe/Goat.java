@@ -35,6 +35,15 @@ public class Goat extends GoatKid {
     }
 
 //Klassenmethoden
+    private void die() {
+        Location loc = this.getLocation();
+        Grid<Actor> gr = this.getGrid();
+        this.removeSelfFromGrid();
+        Flower flower = new Flower(getColor());
+        flower.putSelfInGrid(gr, loc);
+    }
+
+
     @Override
     public void move() {
 
@@ -44,8 +53,9 @@ public class Goat extends GoatKid {
         }
 
         Location loc = getLocation();
+        final double PROBABILITY_LOOKAROUND = 1./6;
 
-        if (Math.random() <= 1./6 && statusAdjacentLocation(gr)) {
+        if (Math.random() <= PROBABILITY_LOOKAROUND && statusAdjacentLocation(gr)) {
 
             Location nextEAST = loc.getAdjacentLocation(Location.EAST);
             Location nextSOUTHEAST = loc.getAdjacentLocation(Location.SOUTHEAST);
@@ -107,12 +117,9 @@ public class Goat extends GoatKid {
 
     @Override
     public void act() {
-        if (Math.random() <= 1./5 && age > 15) {
-            Location loc = this.getLocation();
-            Grid<Actor> gr = this.getGrid();
-            this.removeSelfFromGrid();
-            Flower flower = new Flower(getColor());
-            flower.putSelfInGrid(gr, loc);
+        final double PROBABILITY_DIE = 1./5;
+        if (Math.random() <= PROBABILITY_DIE && age > 15) {
+            die();
             return;
         }
         if (canMove()) {
@@ -129,7 +136,7 @@ public class Goat extends GoatKid {
     }
 
     public String toString(){
-        return super.toString() + "Milk: "+ getMilkStatus();
+        return super.toString() + " [Milk: "+ getMilkStatus() + "]";
     }
 
 }
