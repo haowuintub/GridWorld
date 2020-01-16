@@ -22,6 +22,7 @@ import hausaufgabe.Goat;
 import static hausaufgabe.FarmWorldRunner.countGoatNumber;
 
 import java.awt.*;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -207,6 +208,19 @@ public class Actor
 
     public boolean statusAdjacentLocation(Grid<Actor> gr){
 
+        ArrayList<Location> locList = adjacentLocation();
+
+        for (Location l: locList ){
+            if (!gr.isValid(l)) {
+                return false;
+            }
+        }
+    return true;
+    }
+
+    public ArrayList<Location> adjacentLocation() {
+
+        Grid<Actor> gr = getGrid();
         Location loc = getLocation();
         Location nextEAST = loc.getAdjacentLocation(Location.EAST);
         Location nextSOUTHEAST = loc.getAdjacentLocation(Location.SOUTHEAST);
@@ -226,13 +240,27 @@ public class Actor
         locList.add(nextNORTHWEST);
         locList.add(nextNORTH);
         locList.add(nextNORTHEAST);
-
-        for (Location l: locList ){
-            if (!gr.isValid(l)) {
-                return false;
+        ArrayList<Location> possibleLocList = new ArrayList<>();
+        for (Location l: locList){
+            if (gr.isValid(l)) {
+                possibleLocList.add(l);
             }
         }
-    return true;
+        return possibleLocList;
+    }
+
+    public ArrayList<Location> freeAdjacentLocation() {
+
+        ArrayList<Location> adjacentLocation = adjacentLocation();
+        ArrayList<Location> freeAdjacentList = new ArrayList<>();
+        Grid<Actor> gr = getGrid();
+        for (Location l: adjacentLocation){
+            Actor neighbor = gr.get(l);
+            if (neighbor == null){
+                freeAdjacentList.add(l);
+            }
+        }
+        return freeAdjacentList;
     }
 
 

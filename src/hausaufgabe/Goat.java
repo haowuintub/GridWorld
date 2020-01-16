@@ -6,12 +6,13 @@ import gridworld.framework.grid.Grid;
 import gridworld.framework.grid.Location;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 import static hausaufgabe.FarmWorldRunner.countGoatNumber;
-
 /**
  * @author: Hao Wu, Stefan Schulz
  */
+
 
 public class Goat extends GoatKid {
 
@@ -20,7 +21,7 @@ public class Goat extends GoatKid {
 
 
 //Konstruktoren
-    Goat(int age) {
+    Goat(int age) {                 //used if Goatkid is growing up.
         this.setColor(Color.RED);
         this.age = age;
         this.goatMilk = 2;
@@ -28,14 +29,14 @@ public class Goat extends GoatKid {
     }
 
 
-    Goat() {
+    Goat() {                        //used if Goat created by CreatorFarmer/ FarmWorldRunner
         this.setColor(Color.RED);
         this.goatMilk = 2;
         countGoatNumber++;
     }
 
 //Klassenmethoden
-    private void die() {
+    private void die() {            //Goat dies and is replaced by Flower
         Location loc = this.getLocation();
         Grid<Actor> gr = this.getGrid();
         this.removeSelfFromGrid();
@@ -43,59 +44,31 @@ public class Goat extends GoatKid {
         flower.putSelfInGrid(gr, loc);
     }
 
+    public int getMilkStatus(){
+        return this.goatMilk;
+    }
 
+    public void removeMilk(){
+        this.goatMilk = 0;
+    }
+
+//Override-Klassenmethoden
     @Override
     public void move() {
 
+        Location loc = getLocation();
         Grid<Actor> gr = getGrid();
         if (gr == null) {
             return;
         }
 
-        Location loc = getLocation();
         final double PROBABILITY_LOOKAROUND = 1./6;
-
-        if (Math.random() <= PROBABILITY_LOOKAROUND && statusAdjacentLocation(gr)) {
-
-            Location nextEAST = loc.getAdjacentLocation(Location.EAST);
-            Location nextSOUTHEAST = loc.getAdjacentLocation(Location.SOUTHEAST);
-            Location nextSOUTH = loc.getAdjacentLocation(Location.SOUTH);
-            Location nextSOUTHWEST = loc.getAdjacentLocation(Location.SOUTHWEST);
-            Location nextWEST = loc.getAdjacentLocation(Location.WEST);
-            Location nextNORTHWEST = loc.getAdjacentLocation(Location.NORTHWEST);
-            Location nextNORTH = loc.getAdjacentLocation(Location.NORTH);
-            Location nextNORTHEAST = loc.getAdjacentLocation(Location.NORTHEAST);
-
-            int zufallszahl = (int) (Math.random()*8);
+        if (Math.random() <= PROBABILITY_LOOKAROUND) {
+            ArrayList<Location> freeLocList = freeAdjacentLocation();
+            int locListSize = freeLocList.size();
+            int zufallszahl = (int) (Math.random()*locListSize);
             GoatKid kid = new GoatKid();
-            switch(zufallszahl) {
-                case 0:
-                    kid.putSelfInGrid(getGrid(), nextEAST);
-                    break;
-                case 1:
-                    kid.putSelfInGrid(getGrid(), nextSOUTHEAST);
-                    break;
-                case 2:
-                    kid.putSelfInGrid(getGrid(), nextSOUTH);
-                    break;
-                case 3:
-                    kid.putSelfInGrid(getGrid(), nextSOUTHWEST);
-                    break;
-                case 4:
-                    kid.putSelfInGrid(getGrid(), nextWEST);
-                    break;
-                case 5:
-                    kid.putSelfInGrid(getGrid(), nextNORTHWEST);
-                    break;
-                case 6:
-                    kid.putSelfInGrid(getGrid(), nextNORTH);
-                    break;
-                case 7:
-                    kid.putSelfInGrid(getGrid(), nextNORTHEAST);
-                    break;
-                default:
-                    break;
-            }
+            kid.putSelfInGrid(getGrid(), freeLocList.get(zufallszahl));
         }
 
         Location next = loc.getAdjacentLocation(getDirection());
@@ -107,16 +80,9 @@ public class Goat extends GoatKid {
         }
     }
 
-    public int getMilkStatus(){
-        return this.goatMilk;
-    }
-
-    public void removeMilk(){
-        this.goatMilk = 0;
-    }
-
     @Override
     public void act() {
+        age++ ;
         final double PROBABILITY_DIE = 1./5;
         if (Math.random() <= PROBABILITY_DIE && age > 15) {
             die();
@@ -131,12 +97,12 @@ public class Goat extends GoatKid {
         else {
             turn();
         }
-        age++ ;
         goatMilk++;
     }
 
+    @Override
     public String toString(){
-        return super.toString() + " [Milk: "+ getMilkStatus() + "]";
+        return super.toString() + " [Milk: "+ getMilkStatus() + " ]";
     }
 
 }

@@ -13,41 +13,15 @@ import java.util.ArrayList;
 public class GoatMilker extends Farmer {
 
 //Attribute
-    MilkStorage milkStorage;
+    private MilkStorage milkStorage;
 
 //Konstruktor
-    public GoatMilker(MilkStorage storage) {
+    GoatMilker(MilkStorage storage) {
          this.milkStorage = storage;
 
     }
 
 //Klassenmethoden
-    public ArrayList<Location> adjacentLocation(){
-
-        Location loc = getLocation();
-        Location nextEAST = loc.getAdjacentLocation(Location.EAST);
-        Location nextSOUTHEAST = loc.getAdjacentLocation(Location.SOUTHEAST);
-        Location nextSOUTH = loc.getAdjacentLocation(Location.SOUTH);
-        Location nextSOUTHWEST = loc.getAdjacentLocation(Location.SOUTHWEST);
-        Location nextWEST = loc.getAdjacentLocation(Location.WEST);
-        Location nextNORTHWEST = loc.getAdjacentLocation(Location.NORTHWEST);
-        Location nextNORTH = loc.getAdjacentLocation(Location.NORTH);
-        Location nextNORTHEAST = loc.getAdjacentLocation(Location.NORTHEAST);
-
-        ArrayList<Location> locList = new ArrayList<>();
-        locList.add(nextEAST);
-        locList.add(nextSOUTHEAST);
-        locList.add(nextSOUTH);
-        locList.add(nextSOUTHWEST);
-        locList.add(nextWEST);
-        locList.add(nextNORTHWEST);
-        locList.add(nextNORTH);
-        locList.add(nextNORTHEAST);
-        return locList;
-    }
-
-
-
 
     public boolean canMilkGoats(){
 
@@ -70,6 +44,7 @@ public class GoatMilker extends Farmer {
         }
         return false;
     }
+
     public void milkGoats(){
 
         Grid<Actor> gr = getGrid();
