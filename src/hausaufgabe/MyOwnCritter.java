@@ -163,7 +163,7 @@ public class MyOwnCritter extends Critter {
     @Override
     public ArrayList<Location> getMoveLocations() {
 
-        ArrayList<Location> neighboringLocation = this.getNextLocations();
+        ArrayList<Location> neighboringLocation = new ArrayList<>();
 
         Grid<Actor> gr = getGrid();
         if (gr == null)
